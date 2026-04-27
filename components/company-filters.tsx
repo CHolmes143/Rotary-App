@@ -81,7 +81,7 @@ export function CompanyFilters({
         value={memberId}
         onChange={(event) => setMemberId(event.target.value)}
       >
-        <option value="">All primary owners</option>
+        <option value="">All owners</option>
         {members.map((member) => (
           <option key={member.id} value={member.id}>
             {member.name}

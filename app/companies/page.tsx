@@ -43,7 +43,7 @@ export default async function CompaniesPage({
                 <thead className="bg-slate-50">
                   <tr>
                     <th className="px-4 py-3">Company</th>
-                    <th className="px-4 py-3">Primary owner</th>
+                    <th className="px-4 py-3">Owner</th>
                     <th className="px-4 py-3">Engagements</th>
                     <th className="px-4 py-3">Updated</th>
                     <th className="px-4 py-3">Actions</th>

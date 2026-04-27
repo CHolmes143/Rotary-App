@@ -41,12 +41,24 @@ export async function createCompany(formData: FormData) {
 
 export async function updateCompany(formData: FormData) {
   const id = String(formData.get("id"));
+  const name = String(formData.get("name") || "").trim();
   const companyCategory = parseCompanyCategory(formData.get("companyCategory"));
+  const normalizedInput = normalizeCompanyName(name);
+  const existing = (await prisma.company.findMany({
+    select: { id: true, name: true }
+  })).find(
+    (company) =>
+      company.id !== id && normalizeCompanyName(company.name) === normalizedInput
+  );
+
+  if (existing) {
+    redirect(`/companies/${existing.id}`);
+  }
 
   await prisma.company.update({
     where: { id },
     data: {
-      name: String(formData.get("name") || "").trim(),
+      name,
       companyCategory,
       contactName: parseOptionalString(formData.get("contactName")),
       email: parseOptionalString(formData.get("email")),

@@ -3,23 +3,28 @@ import { getDashboardData, readableCategory, readableStatus } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
 import { SectionCard, StatCard, StatusBadge } from "@/components/ui";
 
+const dashboardOpportunityOrder = [
+  "Sponsorship",
+  "Silent Auction donation",
+  "Vendor",
+  "Marketing support",
+  "Rotary Member"
+] as const;
+
 export default async function DashboardPage() {
   const dashboard = await getDashboardData();
 
   return (
     <div className="space-y-6">
-      <section className="grid gap-4 md:grid-cols-3">
+      <section className="grid gap-4 md:grid-cols-2">
         <StatCard label="Companies" value={dashboard.companiesCount} />
-        <StatCard
-          label="participation commitments"
-          value={dashboard.statusCounts["participation committed"] || 0}
-          tone="bg-primary text-white"
-        />
-        <StatCard
-          label="follow up needed"
-          value={dashboard.statusCounts["follow up needed"] || 0}
-          tone="bg-accent text-slate-900"
-        />
+        <Link href="/companies?status=participation%20committed" className="block">
+          <StatCard
+            label="participation commitments"
+            value={dashboard.statusCounts["participation committed"] || 0}
+            tone="bg-primary text-white"
+          />
+        </Link>
       </section>
 
       <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
@@ -46,10 +51,6 @@ export default async function DashboardPage() {
                 </p>
                 <p className="mt-2 text-4xl font-semibold text-primary">
                   ${dashboard.sponsorshipCommittedTotal.toLocaleString()}
-                </p>
-                <p className="mt-2 text-sm text-slate-600">
-                  {dashboard.sponsorshipCommittedCount} sponsorship commitment
-                  {dashboard.sponsorshipCommittedCount === 1 ? "" : "s"} marked as participation committed
                 </p>
               </div>
 
@@ -100,19 +101,22 @@ export default async function DashboardPage() {
 
         <SectionCard
           title="Opporunity Totals"
-          description="See where sponsor and vendor outreach volume is stacking up."
         >
           <div className="space-y-3">
-            {Object.entries(dashboard.categoryCounts).map(([category, count]) => (
-              <Link
-                key={category}
-                href={`/companies?category=${encodeURIComponent(category)}`}
-                className="flex items-center justify-between rounded-2xl border border-slate-200 bg-accentSoft px-4 py-3"
-              >
-                <span className="font-medium text-primary">{category}</span>
-                <span className="text-lg font-semibold text-primary">{count}</span>
-              </Link>
-            ))}
+            {dashboardOpportunityOrder
+              .filter((category) => dashboard.categoryCounts[category])
+              .map((category) => (
+                <Link
+                  key={category}
+                  href={`/companies?category=${encodeURIComponent(category)}`}
+                  className="flex items-center justify-between rounded-2xl border border-slate-200 bg-accentSoft px-4 py-3"
+                >
+                  <span className="font-medium text-primary">{category}</span>
+                  <span className="text-lg font-semibold text-primary">
+                    {dashboard.categoryCounts[category]}
+                  </span>
+                </Link>
+              ))}
           </div>
         </SectionCard>
       </div>
