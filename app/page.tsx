@@ -8,11 +8,10 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <section className="grid gap-4 md:grid-cols-3">
         <StatCard label="Companies" value={dashboard.companiesCount} />
-        <StatCard label="Engagement types" value={dashboard.outreachCount} tone="bg-white text-primary border border-slate-200" />
         <StatCard
-          label="participation committed"
+          label="participation commitments"
           value={dashboard.statusCounts["participation committed"] || 0}
           tone="bg-primary text-white"
         />
@@ -25,23 +24,82 @@ export default async function DashboardPage() {
 
       <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
         <SectionCard
-          title="Status summary"
-          description="A quick pulse on all outreach activity across the club."
+          title="Sponsorship Thermometer"
         >
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {Object.entries(dashboard.statusCounts).map(([status, count]) => (
-              <div key={status} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                <div className="flex items-center justify-between gap-3">
-                  <StatusBadge status={status as never} />
-                  <span className="text-2xl font-semibold text-primary">{count}</span>
+          <div className="grid gap-6 md:grid-cols-[180px_1fr] md:items-end">
+            <div className="flex items-end justify-center">
+              <div className="relative flex h-72 w-20 items-end justify-center">
+                <div className="absolute bottom-0 h-16 w-16 rounded-full border-4 border-primary bg-accentSoft" />
+                <div className="absolute bottom-10 h-52 w-8 overflow-hidden rounded-full border-4 border-primary bg-slate-100">
+                  <div
+                    className="absolute inset-x-0 bottom-0 rounded-full bg-gradient-to-t from-accent via-accent to-[#ffd978]"
+                    style={{ height: `${dashboard.sponsorshipThermometerPercent}%` }}
+                  />
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-slate-200 bg-primarySoft/40 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
+                  Sponsorship pledged
+                </p>
+                <p className="mt-2 text-4xl font-semibold text-primary">
+                  ${dashboard.sponsorshipCommittedTotal.toLocaleString()}
+                </p>
+                <p className="mt-2 text-sm text-slate-600">
+                  {dashboard.sponsorshipCommittedCount} sponsorship commitment
+                  {dashboard.sponsorshipCommittedCount === 1 ? "" : "s"} marked as participation committed
+                </p>
+              </div>
+
+              <div>
+                <div className="mb-2 flex items-center justify-between text-sm font-medium text-slate-700">
+                  <span>Progress toward $19,000</span>
+                  <span>{dashboard.sponsorshipThermometerPercent}%</span>
+                </div>
+                <div className="h-4 overflow-hidden rounded-full bg-slate-100">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-accent to-primary"
+                    style={{ width: `${dashboard.sponsorshipThermometerPercent}%` }}
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    Goal
+                  </p>
+                  <p className="mt-2 text-2xl font-semibold text-primary">$19,000</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    Remaining
+                  </p>
+                  <p className="mt-2 text-2xl font-semibold text-primary">
+                    $
+                    {Math.max(
+                      0,
+                      dashboard.sponsorshipGoal - dashboard.sponsorshipCommittedTotal
+                    ).toLocaleString()}
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    Committed sponsors
+                  </p>
+                  <p className="mt-2 text-2xl font-semibold text-primary">
+                    {dashboard.sponsorshipCommittedCount}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </SectionCard>
 
         <SectionCard
-          title="Category totals"
+          title="Opporunity Totals"
           description="See where sponsor and vendor outreach volume is stacking up."
         >
           <div className="space-y-3">
@@ -59,48 +117,50 @@ export default async function DashboardPage() {
         </SectionCard>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-2">
-        <SectionCard
-          title="follow up needed"
-          description="Items that are due soon or explicitly marked for follow-up."
-          action={
+      <div>
+        <SectionCard title="Marketing Materials and Additional Information">
+          <div className="flex flex-wrap items-center gap-3">
             <Link
-              href="/companies"
-              className="text-sm font-semibold text-primary hover:text-accent"
+              href="/sponsorship"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
-              Open companies list
+              Sponsoroships
             </Link>
-          }
-        >
-          <div className="space-y-3">
-            {dashboard.followUps.length === 0 ? (
-              <p className="text-sm text-slate-600">No active follow-up items right now.</p>
-            ) : (
-              dashboard.followUps.map((item) => (
-                <Link
-                  key={item.id}
-                  href={`/companies/${item.companyId}`}
-                  className="block rounded-2xl border border-slate-200 p-4 hover:border-primary/25 hover:bg-primarySoft/30"
-                >
-                  <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-                    <div>
-                      <p className="font-semibold text-primary">{item.company.name}</p>
-                      <p className="text-sm text-slate-600">{readableCategory(item.category)}</p>
-                    </div>
-                    <StatusBadge status={readableStatus(item.status) as never} />
-                  </div>
-                  <p className="mt-2 text-sm text-slate-600">
-                    Next step: {item.nextStep || "No next step noted"}
-                  </p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.16em] text-slate-500">
-                    Due {formatDate(item.nextStepDueDate)}
-                  </p>
-                </Link>
-              ))
-            )}
+            <Link
+              href="/vendor"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            >
+              Vendors
+            </Link>
+            <Link
+              href="/silent-auction-donations"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            >
+              Silent Auction Donations
+            </Link>
+            <Link
+              href="/marketing-support"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            >
+              Marketing Support
+            </Link>
+            <Link
+              href="/stick-horse-races"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            >
+              Stick Horse Races
+            </Link>
+            <Link
+              href="/volunteers"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            >
+              Volunteers
+            </Link>
           </div>
         </SectionCard>
+      </div>
 
+      <div>
         <SectionCard title="Recently updated" description="Latest outreach activity and notes.">
           <div className="space-y-3">
             {dashboard.recentlyUpdated.length === 0 ? (

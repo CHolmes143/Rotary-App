@@ -27,10 +27,10 @@ export const outreachMethods = [
 ] as const;
 
 export const sponsorshipTargetAmounts = [
-  "Royalty: $2,500",
-  "Rider: $1,000",
-  "Friend: $500",
-  "Unknown"
+  "Friend $500",
+  "Rider $1000",
+  "Royality $2500",
+  "Racer $100"
 ] as const;
 
 export type CompanyCategory = (typeof companyCategories)[number];

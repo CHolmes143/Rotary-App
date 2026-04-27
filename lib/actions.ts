@@ -82,7 +82,12 @@ export async function addOutreachItem(formData: FormData) {
   const companyId = String(formData.get("companyId"));
   const categoryLabel = String(formData.get("category"));
   const category = parseOutreachCategory(String(formData.get("category")));
-  const status = normalizeStatus(String(formData.get("status")) || "no contact attempted");
+  const statusLabel = String(formData.get("status")) || "no contact attempted";
+  const status = normalizeStatus(statusLabel);
+  const targetAmount =
+    category === "SPONSORSHIP" && statusLabel === "participation committed"
+      ? parseOptionalString(formData.get("targetAmount"))
+      : null;
 
   if (!category) {
     throw new Error("A valid outreach category is required.");
@@ -96,7 +101,7 @@ export async function addOutreachItem(formData: FormData) {
     data: {
       companyId,
       category,
-      targetAmount: null,
+      targetAmount,
       status,
       outreachMethod: null,
       dateLastContacted: parseOptionalDate(formData.get("dateLastContacted")),
@@ -116,7 +121,12 @@ export async function updateOutreachItem(formData: FormData) {
   const companyId = String(formData.get("companyId"));
   const categoryLabel = String(formData.get("category"));
   const category = parseOutreachCategory(categoryLabel);
-  const status = normalizeStatus(String(formData.get("status")) || "no contact attempted");
+  const statusLabel = String(formData.get("status")) || "no contact attempted";
+  const status = normalizeStatus(statusLabel);
+  const targetAmount =
+    category === "SPONSORSHIP" && statusLabel === "participation committed"
+      ? parseOptionalString(formData.get("targetAmount"))
+      : null;
 
   if (!category) {
     throw new Error("A valid outreach category is required.");
@@ -130,7 +140,7 @@ export async function updateOutreachItem(formData: FormData) {
     where: { id },
     data: {
       category,
-      targetAmount: null,
+      targetAmount,
       status,
       outreachMethod: null,
       dateLastContacted: parseOptionalDate(formData.get("dateLastContacted")),

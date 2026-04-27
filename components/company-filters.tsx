@@ -43,13 +43,14 @@ export function CompanyFilters({
 
   return (
     <form
-      className="grid gap-3 md:grid-cols-6"
+      className="grid gap-3 md:grid-cols-7"
       onSubmit={(event) => {
         event.preventDefault();
         applyFilters();
       }}
     >
       <input
+        className="md:col-span-2"
         placeholder="Search companies, contacts, email..."
         value={query}
         onChange={(event) => setQuery(event.target.value)}

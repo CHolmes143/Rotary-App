@@ -133,11 +133,30 @@ export async function getDashboardData() {
     return acc;
   }, {});
 
+  const committedSponsorships = outreachItems.filter(
+    (item) =>
+      item.category === OutreachCategory.SPONSORSHIP &&
+      item.status === OutreachStatus.CONFIRMED_YES
+  );
+
+  const sponsorshipCommittedTotal = committedSponsorships.reduce((sum, item) => {
+    return sum + parseSponsorshipAmount(item.targetAmount);
+  }, 0);
+
+  const sponsorshipGoal = 19000;
+
   return {
     companiesCount: companies.length,
     outreachCount: outreachItems.length,
     statusCounts,
     categoryCounts,
+    sponsorshipCommittedCount: committedSponsorships.length,
+    sponsorshipCommittedTotal,
+    sponsorshipGoal,
+    sponsorshipThermometerPercent: Math.min(
+      100,
+      Math.round((sponsorshipCommittedTotal / sponsorshipGoal) * 100)
+    ),
     followUps: outreachItems
       .filter(
         (item) =>
@@ -271,8 +290,9 @@ function resolveSort(sort?: string): Prisma.CompanyOrderByWithRelationInput[] {
     case "name-desc":
       return [{ name: "desc" }];
     case "updated-desc":
-    default:
       return [{ updatedAt: "desc" }];
+    default:
+      return [{ name: "asc" }];
   }
 }
 
@@ -280,6 +300,19 @@ function addDays(date: Date, days: number) {
   const next = new Date(date);
   next.setDate(next.getDate() + days);
   return next;
+}
+
+function parseSponsorshipAmount(value?: string | null) {
+  if (!value) return 0;
+
+  const normalized = value.toLowerCase();
+
+  if (normalized.includes("2500")) return 2500;
+  if (normalized.includes("1000")) return 1000;
+  if (normalized.includes("500")) return 500;
+  if (normalized.includes("100")) return 100;
+
+  return 0;
 }
 
 export function readableCategory(value: OutreachCategory) {

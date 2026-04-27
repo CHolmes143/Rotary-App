@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import type { OutreachItem } from "@prisma/client";
 import { deleteOutreachItem, updateOutreachItem } from "@/lib/actions";
-import { outreachCategories, outreachStatuses } from "@/lib/constants";
+import { outreachCategories, outreachStatuses, sponsorshipTargetAmounts } from "@/lib/constants";
 import { readableCategory, readableStatus } from "@/lib/data";
 import { formatDate, formatDateInput } from "@/lib/utils";
 import { StatusBadge } from "@/components/ui";
@@ -18,6 +19,11 @@ type OutreachItemCardProps = {
 
 export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
   const initialCategory = readableCategory(item.category);
+  const initialStatus = readableStatus(item.status);
+  const [category, setCategory] = useState(initialCategory);
+  const [status, setStatus] = useState(initialStatus);
+  const showSponsorshipLevel =
+    category === "Sponsorship" && status === "participation committed";
 
   return (
     <form className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
@@ -35,7 +41,11 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
       <div className="grid gap-4 md:grid-cols-2">
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-slate-700">Category</span>
-          <select name="category" defaultValue={initialCategory}>
+          <select
+            name="category"
+            defaultValue={initialCategory}
+            onChange={(event) => setCategory(event.target.value)}
+          >
             {outreachCategories.map((category) => (
               <option key={category} value={category}>
                 {category}
@@ -45,7 +55,11 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
         </label>
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-slate-700">Status</span>
-          <select name="status" defaultValue={readableStatus(item.status)}>
+          <select
+            name="status"
+            defaultValue={initialStatus}
+            onChange={(event) => setStatus(event.target.value)}
+          >
             {outreachStatuses.map((status) => (
               <option key={status} value={status}>
                 {status}
@@ -53,6 +67,21 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
             ))}
           </select>
         </label>
+        {showSponsorshipLevel ? (
+          <label className="block">
+            <span className="mb-2 block text-sm font-medium text-slate-700">Sponsorship level</span>
+            <select name="targetAmount" defaultValue={item.targetAmount || ""}>
+              <option value="">Select sponsorship level</option>
+              {sponsorshipTargetAmounts.map((amount) => (
+                <option key={amount} value={amount}>
+                  {amount}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : (
+          <input type="hidden" name="targetAmount" value="" />
+        )}
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-slate-700">Date last contacted</span>
           <input
