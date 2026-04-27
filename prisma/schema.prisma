@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum OutreachCategory {
+  SILENT_AUCTION_DONATION
+  VENDOR
+  SPONSORSHIP
+  MARKETING_SUPPORT
+  SIGN_IN_WINDOW
+  ROTARY_MEMBER
+}
+
+enum OutreachStatus {
+  NOT_STARTED
+  ASSIGNED
+  CONTACT_ATTEMPTED
+  IN_CONVERSATION
+  CONFIRMED_YES
+  DECLINED
+  NO_RESPONSE
+  FOLLOW_UP_NEEDED
+  CLOSED
+}
+
+enum OutreachMethod {
+  PHONE_TEXT
+  EMAIL
+  IN_PERSON
+  SOCIAL_MEDIA_DM
+  OTHER
+}
+
+model Company {
+  id                  String           @id @default(cuid())
+  name                String
+  companyCategory     String?
+  contactName         String?
+  email               String?
+  phone               String?
+  socialMediaHandles  String?
+  description         String?
+  address             String?
+  notes               String?
+  participated2024    Boolean          @default(false)
+  participated2025    Boolean          @default(false)
+  primaryOwnerId      String?
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+  primaryOwner        Member?          @relation("PrimaryOwner", fields: [primaryOwnerId], references: [id], onDelete: SetNull)
+  outreachItems       OutreachItem[]
+
+  @@unique([name])
+  @@index([primaryOwnerId])
+}
+
+model Member {
+  id                    String         @id @default(cuid())
+  name                  String         @unique
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+  ownedCompanies        Company[]      @relation("PrimaryOwner")
+  outreachAssignments   OutreachItem[] @relation("AssignedMember")
+}
+
+model OutreachItem {
+  id                      String            @id @default(cuid())
+  companyId               String
+  category                OutreachCategory
+  targetAmount            String?
+  status                  OutreachStatus    @default(NOT_STARTED)
+  assignedMemberId        String?
+  outreachMethod          OutreachMethod?
+  dateLastContacted       DateTime?
+  nextStep                String?
+  nextStepDueDate         DateTime?
+  notes                   String?
+  createdAt               DateTime          @default(now())
+  updatedAt               DateTime          @updatedAt
+  company                 Company           @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  assignedMember          Member?           @relation("AssignedMember", fields: [assignedMemberId], references: [id], onDelete: SetNull)
+
+  @@index([companyId])
+  @@index([assignedMemberId])
+}

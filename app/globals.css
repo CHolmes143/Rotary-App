@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-canvas text-slate-800 antialiased;
+  background-color: #ffffff;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  @apply transition;
+}
+
+input,
+select,
+textarea {
+  @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-800 shadow-sm outline-none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  @apply ring-2;
+  border-color: #17458f;
+  --tw-ring-color: rgb(23 69 143 / 0.15);
+}
+
+textarea {
+  @apply min-h-28;
+}
+
+table {
+  @apply w-full border-collapse;
+}
+
+th {
+  @apply text-left text-xs font-semibold uppercase tracking-[0.16em] text-slate-500;
+}
+
+td {
+  @apply text-sm text-slate-700;
+}
