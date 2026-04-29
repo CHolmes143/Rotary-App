@@ -8,6 +8,7 @@ const dashboardOpportunityOrder = [
   "Silent Auction donation",
   "Vendor",
   "Marketing support",
+  "Stick Horse Sponsor",
   "Rotary Member"
 ] as const;
 
@@ -104,7 +105,6 @@ export default async function DashboardPage() {
         >
           <div className="space-y-3">
             {dashboardOpportunityOrder
-              .filter((category) => dashboard.categoryCounts[category])
               .map((category) => (
                 <Link
                   key={category}
@@ -113,7 +113,7 @@ export default async function DashboardPage() {
                 >
                   <span className="font-medium text-primary">{category}</span>
                   <span className="text-lg font-semibold text-primary">
-                    {dashboard.categoryCounts[category]}
+                    {dashboard.categoryCounts[category] || 0}
                   </span>
                 </Link>
               ))}

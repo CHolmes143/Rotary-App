@@ -5,7 +5,7 @@ export const outreachCategories = [
   "Vendor",
   "Sponsorship",
   "Marketing support",
-  "Sign in window",
+  "Stick Horse Sponsor",
   "Rotary Member"
 ] as const;
 

@@ -245,7 +245,8 @@ function parseCompanyCategory(value: FormDataEntryValue | null) {
     "silent auction": "SILENT_AUCTION_DONATION",
     "silent auction donation": "SILENT_AUCTION_DONATION",
     marketing: "MARKETING_SUPPORT",
-    "marketing support": "MARKETING_SUPPORT"
+    "marketing support": "MARKETING_SUPPORT",
+    "stick horse sponsor": "STICK_HORSE_SPONSOR"
   };
 
   return map[normalized] || null;

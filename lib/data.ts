@@ -37,6 +37,9 @@ const categoryMap = {
   "Sign in window": OutreachCategory.SIGN_IN_WINDOW,
   SIGN_IN_WINDOW: OutreachCategory.SIGN_IN_WINDOW,
   sign_in_window: OutreachCategory.SIGN_IN_WINDOW,
+  "Stick Horse Sponsor": OutreachCategory.STICK_HORSE_SPONSOR,
+  STICK_HORSE_SPONSOR: OutreachCategory.STICK_HORSE_SPONSOR,
+  stick_horse_sponsor: OutreachCategory.STICK_HORSE_SPONSOR,
   "Rotary Member": OutreachCategory.ROTARY_MEMBER,
   ROTARY_MEMBER: OutreachCategory.ROTARY_MEMBER,
   rotary_member: OutreachCategory.ROTARY_MEMBER
@@ -322,6 +325,7 @@ export function readableCategory(value: OutreachCategory) {
     SPONSORSHIP: "Sponsorship",
     MARKETING_SUPPORT: "Marketing support",
     SIGN_IN_WINDOW: "Sign in window",
+    STICK_HORSE_SPONSOR: "Stick Horse Sponsor",
     ROTARY_MEMBER: "Rotary Member"
   }[value];
 }
