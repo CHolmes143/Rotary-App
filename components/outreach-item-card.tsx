@@ -9,7 +9,7 @@ import { formatDate, formatDateInput } from "@/lib/utils";
 import { StatusBadge } from "@/components/ui";
 
 type OutreachItemWithRelations = OutreachItem & {
-  assignedMember: Pick<Member, "id" | "name"> | null;
+  assignedMember: { id: string; name: string } | null;
 };
 
 type OutreachItemCardProps = {
