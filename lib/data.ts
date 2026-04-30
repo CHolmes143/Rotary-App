@@ -222,12 +222,22 @@ export async function getCompany(id: string) {
   });
 }
 
-export async function exportCompaniesWithOutreach() {
+export async function exportCompaniesWithOutreach(categoryLabel?: string) {
+  const category = categoryLabel ? normalizeCategory(categoryLabel) : undefined;
   const companies = await prisma.company.findMany({
     include: {
       primaryOwner: true,
       outreachItems: true
     },
+    where: category
+      ? {
+          outreachItems: {
+            some: {
+              category
+            }
+          }
+        }
+      : undefined,
     orderBy: [{ name: "asc" }]
   });
 
@@ -260,7 +270,9 @@ export async function exportCompaniesWithOutreach() {
       ];
     }
 
-    return company.outreachItems.map((item) => ({
+    return company.outreachItems
+      .filter((item) => (category ? item.category === category : true))
+      .map((item) => ({
       companyName: company.name,
       contactName: company.contactName || "",
       email: company.email || "",

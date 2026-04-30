@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CompanyListRow } from "@/components/company-list-row";
 import { CompanyFilters } from "@/components/company-filters";
 import { ImportForm } from "@/components/import-form";
+import { outreachCategories } from "@/lib/constants";
 import { SectionCard } from "@/components/ui";
 import { getCompanies, getMembers } from "@/lib/data";
 
@@ -36,6 +37,20 @@ export default async function CompaniesPage({
       >
         <div className="space-y-4">
           <CompanyFilters members={members} />
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-sm font-semibold text-primary">Download company lists by engagement type</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {outreachCategories.map((category) => (
+                <a
+                  key={category}
+                  href={`/api/export?category=${encodeURIComponent(category)}`}
+                  className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-primary hover:border-primary/30 hover:bg-primarySoft"
+                >
+                  {category}
+                </a>
+              ))}
+            </div>
+          </div>
           <ImportForm />
           <div className="overflow-hidden rounded-2xl border border-slate-100">
             <div className="overflow-x-auto">
