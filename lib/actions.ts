@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { OutreachCategory } from "@prisma/client";
 import { companyCategories } from "@/lib/constants";
 import { prisma } from "@/lib/prisma";
 import { normalizeCategory, normalizeMethod, normalizeStatus } from "@/lib/data";
@@ -234,19 +235,22 @@ function parseCompanyCategory(value: FormDataEntryValue | null) {
   return companyCategories.includes(category as (typeof companyCategories)[number])
     ? category
     : undefined;
-}function parseOutreachCategory(value: string) {
+}
+
+function parseOutreachCategory(value: string): OutreachCategory | null {
   if (!value) return null;
 
   const normalized = value.trim().toLowerCase();
 
-  const map: Record<string, string> = {
-    vendor: "VENDOR",
-    sponsorship: "SPONSORSHIP",
-    "silent auction": "SILENT_AUCTION_DONATION",
-    "silent auction donation": "SILENT_AUCTION_DONATION",
-    marketing: "MARKETING_SUPPORT",
-    "marketing support": "MARKETING_SUPPORT",
-    "stick horse sponsor": "STICK_HORSE_SPONSOR"
+  const map: Record<string, OutreachCategory> = {
+    vendor: OutreachCategory.VENDOR,
+    sponsorship: OutreachCategory.SPONSORSHIP,
+    "silent auction": OutreachCategory.SILENT_AUCTION_DONATION,
+    "silent auction donation": OutreachCategory.SILENT_AUCTION_DONATION,
+    marketing: OutreachCategory.MARKETING_SUPPORT,
+    "marketing support": OutreachCategory.MARKETING_SUPPORT,
+    "stick horse sponsor": OutreachCategory.STICK_HORSE_SPONSOR,
+    "rotary member": OutreachCategory.ROTARY_MEMBER
   };
 
   return map[normalized] || null;
