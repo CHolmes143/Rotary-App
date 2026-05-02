@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotary Outreach Tracker Quick Start Guide</title>
+    <style>
+      :root {
+        --primary: #17458f;
+        --primary-soft: #e8f0ff;
+        --accent: #f6b333;
+        --accent-soft: #fff7df;
+        --ink: #1e293b;
+        --muted: #64748b;
+        --line: #dbe3ef;
+        --canvas: #f8fafc;
+        --white: #ffffff;
+        --success: #dff7e5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, #fff 0%, #f8fbff 58%, #f6f8fc 100%);
+      }
+
+      .page {
+        width: min(1180px, calc(100vw - 32px));
+        margin: 20px auto;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 24px 60px rgba(23, 69, 143, 0.12);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 28px;
+        padding: 28px 32px 20px;
+        background:
+          radial-gradient(circle at top right, rgba(246, 179, 51, 0.16), transparent 28%),
+          linear-gradient(135deg, rgba(232, 240, 255, 0.8), rgba(255, 255, 255, 0.96));
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero img {
+        width: 100%;
+        max-width: 240px;
+        display: block;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--primary);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 40px;
+        line-height: 1.05;
+        color: var(--primary);
+      }
+
+      .hero p {
+        margin: 12px 0 0;
+        font-size: 17px;
+        line-height: 1.55;
+        max-width: 720px;
+        color: var(--ink);
+      }
+
+      .hero-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .chip {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 12px 14px;
+      }
+
+      .chip strong {
+        display: block;
+        color: var(--primary);
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .chip span {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .content {
+        padding: 24px 32px 30px;
+      }
+
+      .section-title {
+        margin: 0 0 14px;
+        font-size: 26px;
+        color: var(--primary);
+      }
+
+      .section-subtitle {
+        margin: -4px 0 18px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+
+      .step {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 18px;
+        background: var(--white);
+        position: relative;
+        min-height: 220px;
+      }
+
+      .step-number {
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary);
+        color: var(--white);
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .step h3 {
+        margin: 14px 0 8px;
+        font-size: 20px;
+        color: var(--primary);
+      }
+
+      .step p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--ink);
+      }
+
+      .mini-ui {
+        margin-top: 16px;
+        border: 1px solid var(--line);
+        background: #f8fbff;
+        border-radius: 16px;
+        padding: 12px;
+      }
+
+      .mini-ui.top {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .dot.primary {
+        background: var(--primary);
+      }
+
+      .bar {
+        flex: 1;
+        height: 12px;
+        border-radius: 999px;
+        background: #dce7fb;
+      }
+
+      .table-lines,
+      .status-stack,
+      .detail-grid {
+        display: grid;
+        gap: 8px;
+      }
+
+      .line {
+        height: 12px;
+        border-radius: 999px;
+        background: #dce7fb;
+      }
+
+      .line.short {
+        width: 55%;
+      }
+
+      .line.medium {
+        width: 78%;
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .badge {
+        padding: 5px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        background: var(--accent-soft);
+        color: var(--primary);
+      }
+
+      .badge.green {
+        background: var(--success);
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--white);
+        padding: 10px;
+      }
+
+      .tips {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 18px;
+        margin-top: 8px;
+      }
+
+      .tip-box {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: var(--canvas);
+        padding: 18px 20px;
+      }
+
+      .tip-box h3 {
+        margin: 0 0 10px;
+        font-size: 20px;
+        color: var(--primary);
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li {
+        margin: 8px 0;
+        line-height: 1.5;
+      }
+
+      .callout {
+        margin-top: 14px;
+        padding: 12px 14px;
+        border-radius: 16px;
+        border: 1px solid #f7d98f;
+        background: var(--accent-soft);
+        color: #634300;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 32px 22px;
+        border-top: 1px solid var(--line);
+        background: #fbfcfe;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .footer strong {
+        color: var(--primary);
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .workflow,
+        .tips,
+        .hero-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .hero img {
+          max-width: 180px;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .page {
+          width: 100%;
+          margin: 0;
+          border: none;
+          box-shadow: none;
+          border-radius: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <div>
+          <img src="/rotary-rodeo-logo.png" alt="Rotary Rodeo logo" />
+        </div>
+        <div>
+          <p class="eyebrow">Rotary Club of Dripping Springs Internal Tool</p>
+          <h1>Rotary Outreach Tracker<br />Quick Start Guide</h1>
+          <p>
+            Use this app to keep one shared view of local company outreach so Rotary members can
+            see who is contacting whom, what each business has been asked to support, and what
+            needs to happen next.
+          </p>
+
+          <div class="hero-strip">
+            <div class="chip">
+              <strong>Dashboard</strong>
+              <span>See total companies, commitments, sponsorship progress, and opportunity counts.</span>
+            </div>
+            <div class="chip">
+              <strong>Companies</strong>
+              <span>Search, filter, open records, import CSVs, and export lists.</span>
+            </div>
+            <div class="chip">
+              <strong>Company Records</strong>
+              <span>View contact info, engagements, notes, and ownership in one place.</span>
+            </div>
+            <div class="chip">
+              <strong>Resources</strong>
+              <span>Open sponsorship, vendor, silent auction, and marketing materials.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content">
+        <h2 class="section-title">How To Use The App</h2>
+        <p class="section-subtitle">
+          Follow this simple workflow anytime you need to check a company, add outreach, or update
+          progress.
+        </p>
+
+        <div class="workflow">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Start on the Dashboard</h3>
+            <p>
+              Review the overall picture first. The dashboard shows how many companies are in the
+              system, how many commitments have been made, and which opportunity types are active.
+            </p>
+            <div class="mini-ui">
+              <div class="mini-ui top">
+                <span class="dot primary"></span>
+                <span class="dot"></span>
+                <div class="bar"></div>
+              </div>
+              <div class="table-lines" style="margin-top: 10px;">
+                <div class="line"></div>
+                <div class="line medium"></div>
+                <div class="line short"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Search Before Contacting</h3>
+            <p>
+              Go to <strong>Companies</strong> and search the business name first. This helps avoid
+              duplicate outreach and shows whether another Rotary member is already working that
+              relationship.
+            </p>
+            <div class="mini-ui">
+              <div class="line"></div>
+              <div class="badge-row" style="margin-top: 10px;">
+                <span class="badge">Sponsorship</span>
+                <span class="badge">Vendor</span>
+                <span class="badge">Silent Auction</span>
+              </div>
+              <div class="table-lines" style="margin-top: 10px;">
+                <div class="line medium"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Open the Company Record</h3>
+            <p>
+              Inside the company record, check the primary owner, notes, and all existing
+              engagements. This gives you the full picture before you email, call, or visit the
+              business.
+            </p>
+            <div class="mini-ui detail-grid">
+              <div class="panel">
+                <div class="line medium"></div>
+                <div class="line short" style="margin-top: 8px;"></div>
+                <div class="line medium" style="margin-top: 8px;"></div>
+              </div>
+              <div class="panel">
+                <div class="badge-row">
+                  <span class="badge green">participation committed</span>
+                </div>
+                <div class="line short" style="margin-top: 10px;"></div>
+                <div class="line medium" style="margin-top: 8px;"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">4</div>
+            <h3>Update Engagements</h3>
+            <p>
+              Add a new engagement when the same company is being approached for another
+              opportunity. Update the status, next step, due date, and notes so the next Rotary
+              member knows exactly what happened.
+            </p>
+            <div class="mini-ui">
+              <div class="status-stack">
+                <div class="badge-row">
+                  <span class="badge">no contact attempted</span>
+                </div>
+                <div class="badge-row">
+                  <span class="badge">follow up needed</span>
+                </div>
+                <div class="badge-row">
+                  <span class="badge green">participation committed</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="tips">
+          <div class="tip-box">
+            <h3>Best Practices For Members</h3>
+            <ul>
+              <li>Always search the company name first before making contact.</li>
+              <li>Use the company record as the single source of truth for notes and follow-up.</li>
+              <li>Update the status as soon as a conversation changes.</li>
+              <li>Add a new engagement if the company is being asked about another opportunity.</li>
+              <li>Use clear notes so another member can step in without guessing.</li>
+            </ul>
+            <div class="callout">
+              If a company already exists but the name looks slightly different, pause and check the
+              existing record before creating a new one.
+            </div>
+          </div>
+
+          <div class="tip-box">
+            <h3>Helpful Tools In The App</h3>
+            <ul>
+              <li><strong>Add new company:</strong> Create a record for a business not yet in the list.</li>
+              <li><strong>Import companies from CSV:</strong> Bring in existing company lists.</li>
+              <li><strong>Download company list &amp; assignments:</strong> Export current records.</li>
+              <li><strong>Opportunity totals:</strong> Click a category on the dashboard to jump to filtered companies.</li>
+              <li><strong>Marketing materials:</strong> Open sponsorship, vendor, and other support resources.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div><strong>Live site:</strong> rotary-app-nine.vercel.app</div>
+        <div><strong>Purpose:</strong> Keep Rotary outreach coordinated, visible, and easy to update.</div>
+      </footer>
+    </div>
+  </body>
+</html>
