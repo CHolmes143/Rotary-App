@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -9,6 +12,21 @@ const links = [
 ];
 
 export function Shell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isPublicRoute =
+    pathname === "/event" ||
+    pathname === "/sponsorship" ||
+    pathname === "/vendor-opportunity" ||
+    pathname === "/a-look-back";
+
+  if (isPublicRoute) {
+    return (
+      <div className="min-h-screen bg-canvas">
+        <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</main>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       <header className="border-b border-slate-200 bg-white">

@@ -119,7 +119,7 @@ export default async function DashboardPage() {
         <SectionCard title="Marketing Materials and Additional Information">
           <div className="flex flex-wrap items-center gap-3">
             <Link
-              href="/sponsorship"
+              href="/sponsorship-resources"
               className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
               Sponsoroships

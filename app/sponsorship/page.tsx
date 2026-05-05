@@ -1,100 +1,80 @@
-import { FacebookPostDownloads } from "@/components/facebook-post-downloads";
+import Link from "next/link";
+import { PublicPageShell } from "@/components/public-page-shell";
 import { SectionCard } from "@/components/ui";
+
+const benefits = [
+  "Brand visibility before, during, and after the event",
+  "Recognition alongside a respected Rotary community initiative",
+  "Connection with local families, leaders, and supporters",
+  "An opportunity to invest in scholarship and student-support impact"
+];
 
 export default function SponsorshipPage() {
   return (
-    <div className="space-y-6">
-      <SectionCard
-        title="Acquiring Sponsorships"
-        description="DOWNLOAD or COPY/PASTE URL to send/share"
-      >
-        <div className="space-y-4">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <a
-              href="https://forms.gle/YWTZNKxXG8xz1etC7"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-            >
-              Link to Sponsorship Registration Form
-            </a>
+    <PublicPageShell
+      eyebrow="Public Sponsorship Page"
+      title="Sponsor the Back to School Rotary Rodeo"
+      description="Partner with the Rotary Club of Dripping Springs to support a high-visibility community event that helps local students while building meaningful goodwill for your business."
+    >
+      <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
+        <SectionCard title="Why sponsor?">
+          <div className="space-y-4 text-sm leading-7 text-slate-700 sm:text-base">
+            <p>
+              Sponsorship connects your business to a family-friendly event with real community
+              purpose. Sponsors are not only supporting a memorable day for attendees, but also the
+              broader Rotary mission of helping students and strengthening local connections.
+            </p>
+            <ul className="ml-5 list-disc space-y-2">
+              {benefits.map((benefit) => (
+                <li key={benefit}>{benefit}</li>
+              ))}
+            </ul>
+          </div>
+        </SectionCard>
+
+        <SectionCard title="Community-focused visibility">
+          <div className="space-y-4 text-sm leading-7 text-slate-700 sm:text-base">
+            <p>
+              Sponsorship helps position your business in front of local families, event attendees,
+              and community leaders in a setting that feels positive, energetic, and rooted in
+              service.
+            </p>
+            <p>
+              Whether you want to build goodwill, strengthen brand awareness, or show visible local
+              support, the Rotary Rodeo offers a strong platform for meaningful community presence.
+            </p>
+          </div>
+        </SectionCard>
+      </div>
+
+      <SectionCard title="Sponsorship Opportunities">
+        <div className="space-y-6 py-2">
+          <div className="mx-auto w-full max-w-6xl overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
+            <img
+              src="/sponsorship-tiers.png"
+              alt="Back to School Rotary Rodeo sponsorship tiers for local businesses"
+              className="block h-auto w-full"
+            />
           </div>
 
-          <div className="grid gap-4 xl:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                General
-              </h3>
-              <div className="mt-3 flex flex-col items-start gap-2">
-                <a
-                  href="/sponsorship-packet-print-email.pdf"
-                  download
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-                >
-                  General Sponsorship Packet - Download PDF for email or print
-                </a>
-                <a
-                  href="https://online.fliphtml5.com/carissaholmesrealestate/Development_RotaryRodeoSponsorshipPacket/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-                >
-                  General Sponsorship - SHARE this link via email, text or socical
-                </a>
-              </div>
-              <div className="mt-4 flex flex-wrap items-center gap-3">
-                <FacebookPostDownloads />
-              </div>
-            </div>
+          <div className="flex flex-col items-center gap-4 pb-2">
+            <Link
+              href="#"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            >
+              Become a Sponsor
+            </Link>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                Education
-              </h3>
-              <div className="mt-3 flex flex-col items-start gap-2">
-                <a
-                  href="/sponsorship-packet-edu.pdf"
-                  download
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-                >
-                  Edu Sponsorship Packet - Download PDF for email or print
-                </a>
-                <a
-                  href="https://online.fliphtml5.com/carissaholmesrealestate/arkh/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-                >
-                  Edu Sponsorship - SHARE this link via email, text or socical
-                </a>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                Development
-              </h3>
-              <div className="mt-3 flex flex-col items-start gap-2">
-                <a
-                  href="/sponsorship-packet-development.pdf"
-                  download
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-                >
-                  Dev Sponsorship Packet - Download PDF for email or print
-                </a>
-                <a
-                  href="https://online.fliphtml5.com/carissaholmesrealestate/arkh/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-                >
-                  Dev Sponsorship - SHARE this link via email, text or socical
-                </a>
-              </div>
-            </div>
+            <a
+              href="/sponsorship-packet.pdf"
+              download
+              className="text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+            >
+              Download Sponsorship Packet
+            </a>
           </div>
         </div>
       </SectionCard>
-    </div>
+    </PublicPageShell>
   );
 }
