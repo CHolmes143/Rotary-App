@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { CompanyListRow } from "@/components/company-list-row";
 import { CompanyFilters } from "@/components/company-filters";
-import { ImportForm } from "@/components/import-form";
 import { outreachCategories } from "@/lib/constants";
 import { SectionCard } from "@/components/ui";
 import { getCompanies, getMembers } from "@/lib/data";
@@ -51,7 +50,6 @@ export default async function CompaniesPage({
               ))}
             </div>
           </div>
-          <ImportForm />
           <div className="overflow-hidden rounded-2xl border border-slate-100">
             <div className="overflow-x-auto">
               <table className="min-w-full bg-white">

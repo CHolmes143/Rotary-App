@@ -1,14 +1,13 @@
 import Link from "next/link";
-import { getDashboardData, readableCategory, readableStatus } from "@/lib/data";
-import { formatDate } from "@/lib/utils";
-import { SectionCard, StatCard, StatusBadge } from "@/components/ui";
+import { getDashboardData } from "@/lib/data";
+import { SectionCard, StatCard } from "@/components/ui";
 
 const dashboardOpportunityOrder = [
   "Sponsorship",
   "Silent Auction donation",
   "Vendor",
   "Marketing support",
-  "Stick Horse Sponsor",
+  "Stick Horse Showdown",
   "Rotary Member"
 ] as const;
 
@@ -108,7 +107,7 @@ export default async function DashboardPage() {
               >
                 <span className="font-medium text-primary">{category}</span>
                 <span className="text-lg font-semibold text-primary">
-                  {dashboard.categoryCounts[category] || 0}
+                  {dashboard.categoryCounts[category === "Stick Horse Showdown" ? "Stick Horse Sponsor" : category] || 0}
                 </span>
               </Link>
             ))}
@@ -124,6 +123,12 @@ export default async function DashboardPage() {
               className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
               Sponsoroships
+            </Link>
+            <Link
+              href="/stick-horse-races"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            >
+              Stick Horse Showdown
             </Link>
             <Link
               href="/vendor"
@@ -144,49 +149,11 @@ export default async function DashboardPage() {
               Marketing Support
             </Link>
             <Link
-              href="/stick-horse-races"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
-            >
-              Stick Horse Races
-            </Link>
-            <Link
               href="/volunteers"
               className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
               Volunteers
             </Link>
-          </div>
-        </SectionCard>
-      </div>
-
-      <div>
-        <SectionCard title="Recently updated" description="Latest outreach activity and notes.">
-          <div className="space-y-3">
-            {dashboard.recentlyUpdated.length === 0 ? (
-              <p className="text-sm text-slate-600">No outreach records yet.</p>
-            ) : (
-              dashboard.recentlyUpdated.map((item) => (
-                <Link
-                  key={item.id}
-                  href={`/companies/${item.companyId}`}
-                  className="block rounded-2xl border border-slate-200 p-4 hover:border-primary/25 hover:bg-primarySoft/30"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <p className="font-semibold text-primary">{item.company.name}</p>
-                      <p className="text-sm text-slate-600">{readableCategory(item.category)}</p>
-                    </div>
-                    <StatusBadge status={readableStatus(item.status) as never} />
-                  </div>
-                  <p className="mt-2 text-sm text-slate-600">
-                    Primary owner: {item.company.primaryOwner?.name || "Unassigned"}
-                  </p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.16em] text-slate-500">
-                    Updated {formatDate(item.updatedAt)}
-                  </p>
-                </Link>
-              ))
-            )}
           </div>
         </SectionCard>
       </div>

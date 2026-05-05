@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "/", label: "Dashboard" },
+  { href: "/", label: "Event Dashboard" },
   { href: "/companies", label: "Companies" },
   { href: "/members", label: "Rotary Members" }
 ];

@@ -87,12 +87,24 @@ const methodMap = {
 } as const;
 
 export async function getMembers() {
-  return prisma.member.findMany({
+  const members = await prisma.member.findMany({
     include: {
       _count: {
         select: {
           outreachAssignments: true,
           ownedCompanies: true
+        }
+      },
+      ownedCompanies: {
+        select: {
+          outreachItems: {
+            where: {
+              status: OutreachStatus.CONFIRMED_YES
+            },
+            select: {
+              id: true
+            }
+          }
         }
       }
     },
@@ -100,6 +112,14 @@ export async function getMembers() {
       name: "asc"
     }
   });
+
+  return members.map((member) => ({
+    ...member,
+    committedEngagementsCount: member.ownedCompanies.reduce(
+      (total, company) => total + company.outreachItems.length,
+      0
+    )
+  }));
 }
 
 export async function getDashboardData() {
