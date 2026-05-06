@@ -27,6 +27,20 @@ export default async function DashboardPage() {
         </Link>
       </section>
 
+      <SectionCard
+        title="Help"
+        description="Watch quick how-to videos for common Rotary Rodeo tasks."
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            href="/help"
+            className="inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-accent/90"
+          >
+            Open Help Videos
+          </Link>
+        </div>
+      </SectionCard>
+
       <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
         <SectionCard title="Sponsorship Thermometer">
           <div className="grid gap-6 md:grid-cols-[180px_1fr] md:items-end">
@@ -153,19 +167,6 @@ export default async function DashboardPage() {
               className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
               Volunteers
-            </Link>
-          </div>
-        </SectionCard>
-      </div>
-
-      <div>
-        <SectionCard title="Help">
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/help"
-              className="inline-flex rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-primary hover:border-primary/30 hover:bg-primarySoft"
-            >
-              How-To Videos
             </Link>
           </div>
         </SectionCard>
