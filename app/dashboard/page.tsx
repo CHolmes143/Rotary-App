@@ -157,6 +157,19 @@ export default async function DashboardPage() {
           </div>
         </SectionCard>
       </div>
+
+      <div>
+        <SectionCard title="Help">
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/help"
+              className="inline-flex rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-primary hover:border-primary/30 hover:bg-primarySoft"
+            >
+              How-To Videos
+            </Link>
+          </div>
+        </SectionCard>
+      </div>
     </div>
   );
 }
