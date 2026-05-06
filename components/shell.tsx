@@ -45,7 +45,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 <p className="text-sm font-medium tracking-[0.08em] text-primary/70">
                   Rotary Club of Dripping Springs Internal Member Tool
                 </p>
-                <h1 className="font-serif text-3xl text-primary">Rotary Rodeo Outreach Tracker</h1>
+                <h1 className="font-serif text-3xl text-primary">Rotary Rodeo 2026</h1>
                 <p className="mt-1 max-w-2xl text-sm text-slate-600">
                   Keep one shared view of local company outreach so members can coordinate
                   sponsorship, vendor, donation, and marketing requests without overlap.

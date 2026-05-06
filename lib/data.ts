@@ -166,7 +166,7 @@ export async function getDashboardData() {
     return sum + parseSponsorshipAmount(item.targetAmount);
   }, 0);
 
-  const sponsorshipGoal = 19000;
+  const sponsorshipGoal = 10000;
 
   return {
     companiesCount: companies.length,

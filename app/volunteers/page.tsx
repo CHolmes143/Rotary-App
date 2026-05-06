@@ -5,7 +5,7 @@ export default function VolunteersPage() {
   return (
     <div className="space-y-6">
       <SectionCard
-        title="Volunteers Materials and Additional Information"
+        title="Volunteers Materials"
         description="This page is ready for volunteer details, signup information, schedules, and supporting materials."
       >
         <div className="space-y-4">

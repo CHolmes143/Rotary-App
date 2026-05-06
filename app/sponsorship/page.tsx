@@ -49,7 +49,7 @@ export default function SponsorshipPage() {
 
       <SectionCard title="Sponsorship Opportunities">
         <div className="space-y-6 py-2">
-          <div className="mx-auto w-full max-w-6xl overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
+          <div className="mx-auto w-full max-w-6xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
             <img
               src="/sponsorship-tiers.png"
               alt="Back to School Rotary Rodeo sponsorship tiers for local businesses"
@@ -59,7 +59,9 @@ export default function SponsorshipPage() {
 
           <div className="flex flex-col items-center gap-4 pb-2">
             <Link
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfVLQb1yKl909e2RWuh_ydyM8PNlSW7YbQSAdOSq2-j7-mxvg/viewform?usp=header"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
               Become a Sponsor

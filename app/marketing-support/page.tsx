@@ -4,7 +4,7 @@ export default function MarketingSupportPage() {
   return (
     <div className="space-y-6">
       <SectionCard
-        title="Marketing Support Materials and Additional Information"
+        title="Marketing Support Materials"
         description="DOWNLOAD or COPY/PASTE URL to send/share"
       >
         <div className="grid gap-4 md:grid-cols-2">

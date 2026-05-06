@@ -4,7 +4,7 @@ export default function VendorPage() {
   return (
     <div className="space-y-6">
       <SectionCard
-        title="Vendor Marketing Materials and Additional Information"
+        title="Vendor Marketing Materials"
         description="DOWNLOAD or COPY/PASTE URL to send/share"
       >
         <div className="space-y-4">

@@ -11,7 +11,7 @@ export default function SponsorshipResourcesPage() {
         <div className="space-y-4">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
             <a
-              href="https://forms.gle/YWTZNKxXG8xz1etC7"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfVLQb1yKl909e2RWuh_ydyM8PNlSW7YbQSAdOSq2-j7-mxvg/viewform?usp=header"
               target="_blank"
               rel="noreferrer"
               className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"

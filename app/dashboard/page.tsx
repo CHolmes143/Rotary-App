@@ -54,7 +54,7 @@ export default async function DashboardPage() {
 
               <div>
                 <div className="mb-2 flex items-center justify-between text-sm font-medium text-slate-700">
-                  <span>Progress toward $19,000</span>
+                  <span>Progress toward $10,000</span>
                   <span>{dashboard.sponsorshipThermometerPercent}%</span>
                 </div>
                 <div className="h-4 overflow-hidden rounded-full bg-slate-100">
@@ -70,7 +70,7 @@ export default async function DashboardPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                     Goal
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-primary">$19,000</p>
+                  <p className="mt-2 text-2xl font-semibold text-primary">$10,000</p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
@@ -116,7 +116,7 @@ export default async function DashboardPage() {
       </div>
 
       <div>
-        <SectionCard title="Marketing Materials and Additional Information">
+        <SectionCard title="Marketing Materials">
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/sponsorship-resources"
