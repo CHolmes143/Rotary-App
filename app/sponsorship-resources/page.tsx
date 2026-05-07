@@ -34,7 +34,7 @@ export default function SponsorshipResourcesPage() {
                   General Sponsorship Packet - Download PDF for email or print
                 </a>
                 <a
-                  href="https://online.fliphtml5.com/carissaholmesrealestate/Development_RotaryRodeoSponsorshipPacket/"
+                  href="https://online.fliphtml5.com/carissaholmesrealestate/okdv/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
