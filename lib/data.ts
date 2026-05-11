@@ -195,12 +195,18 @@ export async function getCompanies(filters: CompanyFilters) {
   const andClauses: Prisma.CompanyWhereInput[] = [];
 
   if (filters.query) {
+    const search = { contains: filters.query, mode: "insensitive" } satisfies Prisma.StringFilter;
+
     andClauses.push({
       OR: [
-        { name: { contains: filters.query } },
-        { contactName: { contains: filters.query } },
-        { email: { contains: filters.query } },
-        { description: { contains: filters.query } }
+        { name: search },
+        { contactName: search },
+        { email: search },
+        { phone: search },
+        { socialMediaHandles: search },
+        { address: search },
+        { description: search },
+        { notes: search }
       ]
     });
   }
