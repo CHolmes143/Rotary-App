@@ -1,6 +1,7 @@
 import { SectionCard } from "@/components/ui";
 
 const flyerAudiences = [
+  { name: "General", href: "/stick-horse-general-flyer.pdf" },
   { name: "Banks", href: "/stick-horse-bank-flyer.pdf" },
   { name: "Pre Schools", href: "/stick-horse-preschool-flyer.pdf" },
   { name: "Tutoring Organizations", href: "/stick-horse-tutor-flyer.pdf" },
