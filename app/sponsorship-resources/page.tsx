@@ -60,7 +60,7 @@ export default function SponsorshipResourcesPage() {
                   Edu Sponsorship Packet - Download PDF for email or print
                 </a>
                 <a
-                  href="https://online.fliphtml5.com/carissaholmesrealestate/arkh/"
+                  href="https://online.fliphtml5.com/carissaholmesrealestate/EDU_RotaryRodeoSponsorshipPacket_final/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
