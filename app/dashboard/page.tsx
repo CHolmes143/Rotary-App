@@ -139,12 +139,6 @@ export default async function DashboardPage() {
               Sponsoroships
             </Link>
             <Link
-              href="/event-general"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
-            >
-              Event (general)
-            </Link>
-            <Link
               href="/stick-horse-races"
               className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
@@ -173,6 +167,12 @@ export default async function DashboardPage() {
               className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
               Volunteers
+            </Link>
+            <Link
+              href="/event-general"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            >
+              Event (general)
             </Link>
           </div>
         </SectionCard>

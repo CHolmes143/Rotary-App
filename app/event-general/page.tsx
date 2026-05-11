@@ -9,9 +9,28 @@ export default function EventGeneralPage() {
         description="This page is ready for general event details, promotional links, talking points, and supporting materials."
       >
         <div className="space-y-4">
-          <p className="text-sm text-slate-600">
-            Use this space for event overview materials, general outreach notes, shareable links, and downloadable resources.
-          </p>
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
+              General Professional Flyer
+            </h3>
+            <div className="mt-3 flex flex-col items-start gap-2">
+              <a
+                href="/general-professional.pdf"
+                download
+                className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+              >
+                Download General Flyer
+              </a>
+              <a
+                href="/general-professional.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+              >
+                Share General Flyer
+              </a>
+            </div>
+          </div>
           <Link
             href="/"
             className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
