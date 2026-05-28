@@ -6,6 +6,12 @@ Primary source of truth: `README.md`, created in the initial commit `36701fa` ("
 
 Rotary Rodeo Outreach Tracker is a lightweight internal web app for Rotary Club members to coordinate local business outreach in one shared place. It keeps companies, member ownership, and support requests visible so sponsorship, vendor, silent auction, Rotary member, and marketing outreach do not overlap.
 
+## Repository Role
+
+Use this repository as the backend/internal operations side of the Rotary app/website. It should remain the source for the outreach tracker, company/contact data workflows, sponsorship operations, downloadable asset management, and any backend/admin functionality needed to support the broader Rotary Rodeo project.
+
+The public-facing frontend will now be called the Rotary Event Website and will be built separately in Squarespace. The domain `rotaryrodeo.com` has been purchased through GoDaddy and should be treated as the intended public website domain.
+
 ## Tech Stack
 
 - Next.js App Router

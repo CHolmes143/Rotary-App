@@ -8,6 +8,12 @@ Last updated: 2026-05-28
 - Local checkout: `/Users/carissaholmes/Documents/Codex_Projects/Rotary/Rotary App`
 - Current branch: `main`
 
+## Project Direction
+
+- This repository is the backend/internal operations repository for the Rotary app/website.
+- The public-facing frontend will now be called the Rotary Event Website and will be built in Squarespace.
+- The domain `rotaryrodeo.com` has been purchased through GoDaddy for the public Rotary Event Website.
+
 ## Vercel
 
 - Current Vercel project: `rotary-app`
@@ -29,7 +35,8 @@ Last updated: 2026-05-28
 
 ## Updating Next
 
-- Continue updating Rotary Rodeo marketing assets, especially sponsorship packets, flipbook/share links, event page imagery, and other public downloads.
+- Continue updating backend/internal Rotary app assets and workflows that support sponsorship operations, downloadable packets, flipbook/share links, event page imagery, and other public downloads.
+- Coordinate future public website content and calls to action with the separate Squarespace Rotary Event Website at `rotaryrodeo.com`.
 - Keep `AI_CONTEXT.md` and this status file updated as repo ownership, deployment URLs, or project priorities change.
 
 ## Known Issues
