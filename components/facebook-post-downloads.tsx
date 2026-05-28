@@ -24,7 +24,7 @@ export function FacebookPostDownloads() {
         onClick={() => setOpen(true)}
         className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
       >
-        Facebook Posts
+        Download and post to Facebook
       </button>
 
       {open ? (

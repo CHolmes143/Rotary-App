@@ -136,7 +136,7 @@ export default async function DashboardPage() {
               href="/sponsorship-resources"
               className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
-              Sponsoroships
+              Sponsorships
             </Link>
             <Link
               href="/stick-horse-races"

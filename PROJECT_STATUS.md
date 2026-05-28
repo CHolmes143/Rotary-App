@@ -44,5 +44,4 @@ Last updated: 2026-05-28
 - The worktree currently contains uncommitted app and public asset changes unrelated to these documentation files. Do not stage them unless they are intentionally part of a marketing asset update.
 - The root `README.md` is the only tracked Markdown brief currently in the repo; it serves as the initial project brief/source of truth.
 - Local Prisma/SQLite setup can fall out of sync after schema changes. Run `npx prisma generate` and `npx prisma db push` after pulling schema updates.
-- Some existing public copy contains typos such as "socical" in share-link labels.
 
