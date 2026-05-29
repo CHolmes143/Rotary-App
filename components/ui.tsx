@@ -13,10 +13,10 @@ export function SectionCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card">
-      <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+    <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-card sm:rounded-3xl sm:p-5">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-primary">{title}</h2>
+          <h2 className="text-base font-semibold leading-snug text-primary sm:text-lg">{title}</h2>
           {description ? <p className="mt-1 text-sm text-slate-600">{description}</p> : null}
         </div>
         {action}

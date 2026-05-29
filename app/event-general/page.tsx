@@ -17,7 +17,7 @@ export default function EventGeneralPage() {
               <a
                 href="/general-professional.pdf"
                 download
-                className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
               >
                 Download General Flyer
               </a>
@@ -25,7 +25,7 @@ export default function EventGeneralPage() {
                 href="/general-professional.pdf"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
               >
                 Share General Flyer
               </a>
@@ -33,7 +33,7 @@ export default function EventGeneralPage() {
           </div>
           <Link
             href="/"
-            className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
           >
             Back to Dashboard
           </Link>

@@ -14,7 +14,7 @@ export default function VolunteersPage() {
           </p>
           <Link
             href="/"
-            className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
           >
             Back to Dashboard
           </Link>

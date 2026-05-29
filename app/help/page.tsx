@@ -44,21 +44,21 @@ export default function HelpPage() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="space-y-4 p-5">
-                <h3 className="text-lg font-semibold text-primary">{item.title}</h3>
-                <div className="flex flex-wrap gap-3">
+              <div className="space-y-4 p-4 sm:p-5">
+                <h3 className="text-base font-semibold leading-snug text-primary sm:text-lg">{item.title}</h3>
+                <div className="grid gap-3 sm:flex sm:flex-wrap">
                   <a
                     href={item.video}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
+                    className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
                   >
                     Watch Video
                   </a>
                   <a
                     href={item.video}
                     download
-                    className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-primary hover:border-primary/30 hover:bg-primarySoft"
+                    className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2.5 text-center text-sm font-semibold text-primary hover:border-primary/30 hover:bg-primarySoft sm:w-auto"
                   >
                     Download
                   </a>

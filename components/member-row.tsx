@@ -15,9 +15,9 @@ type MemberRowProps = {
 
 export function MemberRow({ member }: MemberRowProps) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 bg-white p-4">
+    <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
       <p className="text-base text-slate-900">{member.name}</p>
-      <div className="flex items-center gap-6 text-sm text-slate-600">
+      <div className="grid gap-2 text-sm text-slate-600 sm:flex sm:items-center sm:gap-6">
         <Link
           href={`/companies?memberId=${member.id}`}
           className="font-medium text-primary underline underline-offset-4 hover:text-accent"

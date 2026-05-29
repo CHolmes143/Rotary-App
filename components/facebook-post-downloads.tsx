@@ -22,7 +22,7 @@ export function FacebookPostDownloads() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
       >
         Download and post to Facebook
       </button>
@@ -30,7 +30,7 @@ export function FacebookPostDownloads() {
       {open ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4">
           <div className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl">
-            <div className="mb-5 flex items-center justify-between gap-4">
+            <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <h2 className="text-xl font-semibold text-primary">Facebook Posts</h2>
                 <p className="mt-1 text-sm text-slate-600">
@@ -40,7 +40,7 @@ export function FacebookPostDownloads() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50"
               >
                 Close
               </button>
@@ -63,7 +63,7 @@ export function FacebookPostDownloads() {
                     <a
                       href={post.src}
                       download
-                      className="inline-flex rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
+                      className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
                     >
                       Download {post.title}
                     </a>

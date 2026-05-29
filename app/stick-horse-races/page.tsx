@@ -22,7 +22,7 @@ export default function StickHorseRacesPage() {
               href="https://forms.gle/ov2ExEhfp6oKSBpi6"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+              className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
             >
               Link to Stick Horse Race Registration Form
             </a>
@@ -41,7 +41,7 @@ export default function StickHorseRacesPage() {
                   <a
                     href={audience.href}
                     download
-                    className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                    className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                   >
                     Download Showdown Flyer
                   </a>
@@ -49,7 +49,7 @@ export default function StickHorseRacesPage() {
                     href={audience.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                    className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                   >
                     Share Showdown Flyer
                   </a>

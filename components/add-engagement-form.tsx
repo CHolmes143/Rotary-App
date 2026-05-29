@@ -15,7 +15,7 @@ export function AddEngagementForm({ companyId }: AddEngagementFormProps) {
     category === "Sponsorship" && status === "participation committed";
 
   return (
-    <form action={addOutreachItem} className="mt-4 grid gap-4 md:grid-cols-2">
+    <form action={addOutreachItem} className="mt-4 grid gap-4 lg:grid-cols-2">
       <input type="hidden" name="companyId" value={companyId} />
       <label className="block">
         <span className="mb-2 block text-sm font-medium text-slate-700">Category</span>
@@ -68,7 +68,7 @@ export function AddEngagementForm({ companyId }: AddEngagementFormProps) {
         <span className="mb-2 block text-sm font-medium text-slate-700">Date last contacted</span>
         <input name="dateLastContacted" type="date" />
       </label>
-      <label className="block md:col-span-2">
+      <label className="block lg:col-span-2">
         <span className="mb-2 block text-sm font-medium text-slate-700">Next step</span>
         <input name="nextStep" />
       </label>
@@ -76,14 +76,14 @@ export function AddEngagementForm({ companyId }: AddEngagementFormProps) {
         <span className="mb-2 block text-sm font-medium text-slate-700">Next step due date</span>
         <input name="nextStepDueDate" type="date" />
       </label>
-      <label className="block md:col-span-2">
+      <label className="block lg:col-span-2">
         <span className="mb-2 block text-sm font-medium text-slate-700">Notes</span>
         <textarea name="notes" />
       </label>
-      <div className="md:col-span-2">
+      <div className="lg:col-span-2">
         <button
           type="submit"
-          className="rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900 sm:w-auto"
         >
           Add Engagement
         </button>

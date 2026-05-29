@@ -31,7 +31,7 @@ export default async function DashboardPage() {
         title="Help"
         description="Watch quick how-to videos for common Rotary Rodeo tasks."
       >
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
           <Link
             href="/help"
             className="inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-accent/90"
@@ -43,11 +43,11 @@ export default async function DashboardPage() {
 
       <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
         <SectionCard title="Sponsorship Thermometer">
-          <div className="grid gap-6 md:grid-cols-[180px_1fr] md:items-end">
+          <div className="grid gap-5 lg:grid-cols-[180px_1fr] lg:items-end">
             <div className="flex items-end justify-center">
-              <div className="relative flex h-72 w-20 items-end justify-center">
+              <div className="relative flex h-56 w-20 items-end justify-center sm:h-72">
                 <div className="absolute bottom-0 h-16 w-16 rounded-full border-4 border-primary bg-accentSoft" />
-                <div className="absolute bottom-10 h-52 w-8 overflow-hidden rounded-full border-4 border-primary bg-slate-100">
+                <div className="absolute bottom-10 h-40 w-8 overflow-hidden rounded-full border-4 border-primary bg-slate-100 sm:h-52">
                   <div
                     className="absolute inset-x-0 bottom-0 rounded-full bg-gradient-to-t from-accent via-accent to-[#ffd978]"
                     style={{ height: `${dashboard.sponsorshipThermometerPercent}%` }}
@@ -111,7 +111,7 @@ export default async function DashboardPage() {
           </div>
         </SectionCard>
 
-        <SectionCard title="Opporunity Totals">
+        <SectionCard title="Opportunity Totals">
           <div className="space-y-3">
             {dashboardOpportunityOrder.map((category) => (
               <Link
@@ -131,46 +131,46 @@ export default async function DashboardPage() {
 
       <div>
         <SectionCard title="Marketing Materials">
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
             <Link
               href="/sponsorship-resources"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
             >
               Sponsorships
             </Link>
             <Link
               href="/stick-horse-races"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
             >
               Stick Horse Showdown
             </Link>
             <Link
               href="/vendor"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
             >
               Vendors
             </Link>
             <Link
               href="/silent-auction-donations"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
             >
               Silent Auction Donations
             </Link>
             <Link
               href="/marketing-support"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
             >
               Marketing Support
             </Link>
             <Link
               href="/volunteers"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
             >
               Volunteers
             </Link>
             <Link
               href="/event-general"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
             >
               Event (general)
             </Link>

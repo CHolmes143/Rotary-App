@@ -43,14 +43,14 @@ export function CompanyFilters({
 
   return (
     <form
-      className="grid gap-3 md:grid-cols-7"
+      className="grid gap-3 lg:grid-cols-7"
       onSubmit={(event) => {
         event.preventDefault();
         applyFilters();
       }}
     >
       <input
-        className="md:col-span-2"
+        className="lg:col-span-2"
         placeholder="Search companies, contacts, email..."
         value={query}
         onChange={(event) => setQuery(event.target.value)}
@@ -88,17 +88,17 @@ export function CompanyFilters({
           </option>
         ))}
       </select>
-      <div className="flex gap-2">
+      <div className="grid grid-cols-2 gap-2 sm:flex">
         <button
           type="submit"
-          className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-accent hover:text-slate-900"
+          className="min-h-11 rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-accent hover:text-slate-900"
         >
           Search
         </button>
         <button
           type="button"
           onClick={clearFilters}
-          className="rounded-xl border border-slate-200 bg-accent px-4 py-2 text-sm font-medium text-slate-900 hover:bg-accent/85"
+          className="min-h-11 rounded-xl border border-slate-200 bg-accent px-4 py-2 text-sm font-medium text-slate-900 hover:bg-accent/85"
         >
           Clear
         </button>

@@ -16,7 +16,7 @@ export default function MarketingSupportPage() {
               <a
                 href="/print-publication-support.pdf"
                 download
-                className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
               >
                 Print Publication Outreach
               </a>
@@ -32,7 +32,7 @@ export default function MarketingSupportPage() {
                 href="https://online.fliphtml5.com/carissaholmesrealestate/Print-Publication-Support/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
               >
                 Print Publication Sharing/Outreach
               </a>

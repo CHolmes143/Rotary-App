@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CompanyListRow } from "@/components/company-list-row";
+import { CompanyListCard, CompanyListRow } from "@/components/company-list-row";
 import { CompanyFilters } from "@/components/company-filters";
 import { outreachCategories } from "@/lib/constants";
 import { SectionCard } from "@/components/ui";
@@ -28,7 +28,7 @@ export default async function CompaniesPage({
         action={
           <Link
             href="/companies/new"
-            className="rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-accent hover:text-slate-900 sm:w-auto"
           >
             Add new company
           </Link>
@@ -43,14 +43,23 @@ export default async function CompaniesPage({
                 <a
                   key={category}
                   href={`/api/export?category=${encodeURIComponent(category)}`}
-                  className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-primary hover:border-primary/30 hover:bg-primarySoft"
+                  className="inline-flex min-h-10 items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-primary hover:border-primary/30 hover:bg-primarySoft"
                 >
                   {category}
                 </a>
               ))}
             </div>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-slate-100">
+          <div className="space-y-3 md:hidden">
+            {companies.length === 0 ? (
+              <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-5 text-center text-sm text-slate-500">
+                No companies match the current filters.
+              </div>
+            ) : (
+              companies.map((company) => <CompanyListCard key={company.id} company={company} />)
+            )}
+          </div>
+          <div className="hidden overflow-hidden rounded-2xl border border-slate-100 md:block">
             <div className="overflow-x-auto">
               <table className="min-w-full bg-white">
                 <thead className="bg-slate-50">

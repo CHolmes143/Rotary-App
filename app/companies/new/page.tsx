@@ -13,7 +13,7 @@ export default async function NewCompanyPage() {
         title="Add new company"
         description="Create a company record first, then add one or more engagement types on the detail page."
         action={
-          <Link href="/companies" className="text-sm font-semibold text-primary hover:text-accent">
+          <Link href="/companies" className="inline-flex min-h-11 items-center rounded-xl border border-primary/20 bg-primarySoft px-4 py-2 text-sm font-semibold text-primary hover:bg-accentSoft hover:text-primary sm:min-h-0 sm:border-0 sm:bg-transparent sm:p-0 sm:hover:text-accent">
             Back to companies
           </Link>
         }

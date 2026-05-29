@@ -11,14 +11,14 @@ export default function SponsorshipResourcesPage() {
             href="https://docs.google.com/forms/d/e/1FAIpQLSfVLQb1yKl909e2RWuh_ydyM8PNlSW7YbQSAdOSq2-j7-mxvg/viewform?usp=header"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex rounded-full bg-accent px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-primary shadow-sm transition hover:bg-accent/90"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.08em] text-primary shadow-sm transition hover:bg-accent/90 sm:w-auto"
           >
             Sponsorship Registration Form
           </a>
         }
       >
         <div className="space-y-4">
-          <div className="grid gap-4 xl:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
                 General Audience
@@ -27,7 +27,7 @@ export default function SponsorshipResourcesPage() {
                 <a
                   href="/sponsorship-packet-print-email.pdf"
                   download
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
                   Click To Download
                 </a>
@@ -35,7 +35,7 @@ export default function SponsorshipResourcesPage() {
                   href="https://online.fliphtml5.com/carissaholmesrealestate/zwcd/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
                   Copy This Link to share on social media or by text
                 </a>
@@ -53,7 +53,7 @@ export default function SponsorshipResourcesPage() {
                 <a
                   href="/sponsorship-packet-edu.pdf"
                   download
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
                   Click To Download
                 </a>
@@ -61,7 +61,7 @@ export default function SponsorshipResourcesPage() {
                   href="https://online.fliphtml5.com/carissaholmesrealestate/kmte/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
                   Copy This Link to share on social media or by text
                 </a>
@@ -76,7 +76,7 @@ export default function SponsorshipResourcesPage() {
                 <a
                   href="/sponsorship-packet-development.pdf"
                   download
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
                   Click To Download
                 </a>
@@ -84,7 +84,7 @@ export default function SponsorshipResourcesPage() {
                   href="https://online.fliphtml5.com/carissaholmesrealestate/oxsx/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
                   Copy This Link to share on social media or by text
                 </a>

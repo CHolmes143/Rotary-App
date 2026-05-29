@@ -26,8 +26,8 @@ export default async function CompanyDetailPage({
         title={company.name}
         description="Keep company details and ownership up to date so members can quickly see who is handling what."
         action={
-          <div className="text-right">
-            <Link href="/companies" className="text-sm font-semibold text-primary hover:text-accent">
+          <div className="text-left sm:text-right">
+            <Link href="/companies" className="inline-flex min-h-11 items-center rounded-xl border border-primary/20 bg-primarySoft px-4 py-2 text-sm font-semibold text-primary hover:bg-accentSoft hover:text-primary sm:min-h-0 sm:border-0 sm:bg-transparent sm:p-0 sm:hover:text-accent">
               Back to companies
             </Link>
             <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
@@ -36,7 +36,7 @@ export default async function CompanyDetailPage({
           </div>
         }
       >
-        <form action={updateCompany} className="grid gap-4 md:grid-cols-2">
+        <form action={updateCompany} className="grid gap-4 lg:grid-cols-2">
           <input type="hidden" name="id" value={company.id} />
           <label className="block">
             <span className="mb-2 block text-sm font-medium text-slate-700">Company name</span>
@@ -83,15 +83,15 @@ export default async function CompanyDetailPage({
               defaultValue={company.socialMediaHandles || ""}
             />
           </label>
-          <label className="block md:col-span-2">
+          <label className="block lg:col-span-2">
             <span className="mb-2 block text-sm font-medium text-slate-700">Address</span>
             <input name="address" defaultValue={company.address || ""} />
           </label>
-          <label className="block md:col-span-2">
+          <label className="block lg:col-span-2">
             <span className="mb-2 block text-sm font-medium text-slate-700">Business description</span>
             <input name="description" defaultValue={company.description || ""} />
           </label>
-          <fieldset className="block md:col-span-2">
+          <fieldset className="block lg:col-span-2">
             <legend className="mb-2 block text-sm font-medium text-slate-700">
               Past Year Participation
             </legend>
@@ -116,14 +116,14 @@ export default async function CompanyDetailPage({
               </label>
             </div>
           </fieldset>
-          <label className="block md:col-span-2">
+          <label className="block lg:col-span-2">
             <span className="mb-2 block text-sm font-medium text-slate-700">Company notes</span>
             <textarea name="notes" defaultValue={company.notes || ""} />
           </label>
-          <div className="md:col-span-2">
+          <div className="lg:col-span-2">
             <button
               type="submit"
-              className="rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900 sm:w-auto"
             >
               Save company details
             </button>
@@ -147,7 +147,7 @@ export default async function CompanyDetailPage({
           )}
 
           <div className="rounded-2xl border border-dashed border-slate-300 bg-accentSoft p-4">
-            <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-2">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-2">
               <h3 className="text-base font-semibold text-primary">Add Engagement</h3>
               <p className="text-sm text-primary">
                 Use this when the same company is being contacted for another type of support.

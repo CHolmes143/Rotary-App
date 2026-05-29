@@ -22,7 +22,7 @@ textarea {
 input,
 select,
 textarea {
-  @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-800 shadow-sm outline-none;
+  @apply min-h-11 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base text-slate-800 shadow-sm outline-none sm:text-sm;
 }
 
 input:focus,
