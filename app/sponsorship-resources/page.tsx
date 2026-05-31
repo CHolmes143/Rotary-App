@@ -29,10 +29,17 @@ export default function SponsorshipResourcesPage() {
                   download
                   className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
-                  Click To Download
+                  Click to Download to EMAIL
                 </a>
                 <a
-                  href="https://online.fliphtml5.com/carissaholmesrealestate/zwcd/"
+                  href="/sponsorship-packet-print-email.pdf"
+                  download
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                >
+                  Click to Download to PRINT
+                </a>
+                <a
+                  href="https://online.fliphtml5.com/carissaholmesrealestate/RotaryRodeoSponsorshipPacket_Print/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
@@ -51,14 +58,21 @@ export default function SponsorshipResourcesPage() {
               </h3>
               <div className="mt-3 flex flex-col items-start gap-2">
                 <a
+                  href="/sponsorship-packet-edu-email.pdf"
+                  download
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                >
+                  Click to Download to EMAIL
+                </a>
+                <a
                   href="/sponsorship-packet-edu.pdf"
                   download
                   className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
-                  Click To Download
+                  Click to Download to PRINT
                 </a>
                 <a
-                  href="https://online.fliphtml5.com/carissaholmesrealestate/kmte/"
+                  href="https://online.fliphtml5.com/carissaholmesrealestate/EDU_RotaryRodeoSponsorshipPacket_print/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
@@ -74,14 +88,21 @@ export default function SponsorshipResourcesPage() {
               </h3>
               <div className="mt-3 flex flex-col items-start gap-2">
                 <a
+                  href="/sponsorship-packet-development-email.pdf"
+                  download
+                  className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                >
+                  Click to Download to EMAIL
+                </a>
+                <a
                   href="/sponsorship-packet-development.pdf"
                   download
                   className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                 >
-                  Click To Download
+                  Click to Download to PRINT
                 </a>
                 <a
-                  href="https://online.fliphtml5.com/carissaholmesrealestate/oxsx/"
+                  href="https://online.fliphtml5.com/carissaholmesrealestate/memb/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"

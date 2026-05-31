@@ -39,7 +39,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 alt="Rotary Rodeo logo"
                 width={220}
                 height={100}
-                className="h-20 w-auto shrink-0 sm:h-28 md:h-32"
+                className="hidden w-auto shrink-0 sm:block sm:h-28 md:h-32"
                 priority
               />
               <div>
