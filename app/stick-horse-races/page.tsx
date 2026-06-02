@@ -14,7 +14,16 @@ export default function StickHorseRacesPage() {
     <div className="space-y-6">
       <SectionCard
         title="Stick Horse Showdown Materials"
-        description="DOWNLOAD or COPY/PASTE URL to send/share"
+        action={
+          <a
+            href="https://forms.gle/ov2ExEhfp6oKSBpi6"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.08em] text-primary shadow-sm transition hover:bg-accent/90 sm:w-auto"
+          >
+            Stick Horse Race Registration Form
+          </a>
+        }
       >
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
           <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
