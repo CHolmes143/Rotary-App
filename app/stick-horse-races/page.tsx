@@ -45,14 +45,6 @@ export default function StickHorseRacesPage() {
                   >
                     Download Showdown Flyer
                   </a>
-                  <a
-                    href={audience.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-                  >
-                    Share Showdown Flyer
-                  </a>
                 </div>
               </div>
             ))}
