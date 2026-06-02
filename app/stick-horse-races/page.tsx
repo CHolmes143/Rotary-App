@@ -15,14 +15,24 @@ export default function StickHorseRacesPage() {
       <SectionCard
         title="Stick Horse Showdown Materials"
         action={
-          <a
-            href="https://forms.gle/ov2ExEhfp6oKSBpi6"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.08em] text-primary shadow-sm transition hover:bg-accent/90 sm:w-auto"
-          >
-            Stick Horse Race Registration Form
-          </a>
+          <div className="grid w-full gap-2 sm:w-auto sm:grid-flow-col sm:auto-cols-max">
+            <a
+              href="https://www.backtoschoolrodeo.com/stick-horse-showdown"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-primary/20 bg-white px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.08em] text-primary shadow-sm transition hover:bg-primarySoft sm:w-auto"
+            >
+              Link to Web Page
+            </a>
+            <a
+              href="https://forms.gle/ov2ExEhfp6oKSBpi6"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.08em] text-primary shadow-sm transition hover:bg-accent/90 sm:w-auto"
+            >
+              Stick Horse Race Registration Form
+            </a>
+          </div>
         }
       >
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
