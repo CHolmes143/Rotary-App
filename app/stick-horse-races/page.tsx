@@ -43,7 +43,7 @@ export default function StickHorseRacesPage() {
                     download
                     className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
                   >
-                    Download Showdown Flyer
+                    Download Flyer
                   </a>
                 </div>
               </div>
