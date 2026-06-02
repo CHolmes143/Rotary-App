@@ -16,26 +16,20 @@ export default function StickHorseRacesPage() {
         title="Stick Horse Showdown Materials"
         description="DOWNLOAD or COPY/PASTE URL to send/share"
       >
-        <div className="space-y-4">
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
+            Download Flyer
+          </h3>
+          <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {flyerAudiences.map((audience) => (
-              <div
+              <a
                 key={audience.name}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                href={audience.href}
+                download
+                className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
               >
-                <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                  {audience.name}
-                </h3>
-                <div className="mt-3 flex flex-col items-start gap-2">
-                  <a
-                    href={audience.href}
-                    download
-                    className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-                  >
-                    Download Flyer
-                  </a>
-                </div>
-              </div>
+                {audience.name}
+              </a>
             ))}
           </div>
         </div>
