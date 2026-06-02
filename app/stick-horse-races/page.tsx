@@ -15,19 +15,18 @@ export default function StickHorseRacesPage() {
       <SectionCard
         title="Stick Horse Showdown Materials"
         description="DOWNLOAD or COPY/PASTE URL to send/share"
+        action={
+          <a
+            href="https://forms.gle/ov2ExEhfp6oKSBpi6"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.08em] text-primary shadow-sm transition hover:bg-accent/90 sm:w-auto"
+          >
+            Stick Horse Race Registration Form
+          </a>
+        }
       >
         <div className="space-y-4">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <a
-              href="https://forms.gle/ov2ExEhfp6oKSBpi6"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-10 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
-            >
-              Link to Stick Horse Race Registration Form
-            </a>
-          </div>
-
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {flyerAudiences.map((audience) => (
               <div
