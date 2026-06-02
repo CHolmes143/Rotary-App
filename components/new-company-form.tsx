@@ -21,7 +21,7 @@ export function NewCompanyForm({
     <form
       ref={formRef}
       action={action}
-      className="grid gap-4 md:grid-cols-2"
+      className="grid gap-4 lg:grid-cols-2"
       onSubmit={async (event) => {
         const bypass = bypassRef.current;
         if (bypass?.value === "1") {
@@ -81,19 +81,11 @@ export function NewCompanyForm({
         <span className="mb-2 block text-sm font-medium text-slate-700">Phone</span>
         <input name="phone" />
       </label>
-      <label className="block">
-        <span className="mb-2 block text-sm font-medium text-slate-700">Social media handles</span>
-        <input name="socialMediaHandles" placeholder="@business, facebook.com/business" />
-      </label>
-      <label className="block md:col-span-2">
+      <label className="block lg:col-span-2">
         <span className="mb-2 block text-sm font-medium text-slate-700">Business description</span>
         <input name="description" />
       </label>
-      <label className="block md:col-span-2">
-        <span className="mb-2 block text-sm font-medium text-slate-700">Address</span>
-        <input name="address" />
-      </label>
-      <fieldset className="block md:col-span-2">
+      <fieldset className="block lg:col-span-2">
         <legend className="mb-2 block text-sm font-medium text-slate-700">
           Past Year Participation
         </legend>
@@ -116,14 +108,14 @@ export function NewCompanyForm({
           </label>
         </div>
       </fieldset>
-      <label className="block md:col-span-2">
+      <label className="block lg:col-span-2">
         <span className="mb-2 block text-sm font-medium text-slate-700">Notes</span>
         <textarea name="notes" />
       </label>
-      <div className="md:col-span-2">
+      <div className="lg:col-span-2">
         <button
           type="submit"
-          className="rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900 sm:w-auto"
         >
           Create company
         </button>

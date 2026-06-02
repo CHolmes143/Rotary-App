@@ -22,6 +22,9 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
   const initialStatus = readableStatus(item.status);
   const [category, setCategory] = useState(initialCategory);
   const [status, setStatus] = useState(initialStatus);
+  const [dateLastContacted, setDateLastContacted] = useState(
+    formatDateInput(item.dateLastContacted)
+  );
   const showSponsorshipLevel =
     category === "Sponsorship" && status === "participation committed";
 
@@ -38,7 +41,7 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
           <StatusBadge status={readableStatus(item.status) as never} />
         </div>
       </div>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-slate-700">Category</span>
           <select
@@ -58,7 +61,10 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
           <select
             name="status"
             defaultValue={initialStatus}
-            onChange={(event) => setStatus(event.target.value)}
+            onChange={(event) => {
+              setStatus(event.target.value);
+              setDateLastContacted(getTodayDateInput());
+            }}
           >
             {outreachStatuses.map((status) => (
               <option key={status} value={status}>
@@ -87,10 +93,11 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
           <input
             name="dateLastContacted"
             type="date"
-            defaultValue={formatDateInput(item.dateLastContacted)}
+            value={dateLastContacted}
+            onChange={(event) => setDateLastContacted(event.target.value)}
           />
         </label>
-        <label className="block md:col-span-2">
+        <label className="block lg:col-span-2">
           <span className="mb-2 block text-sm font-medium text-slate-700">Next step</span>
           <input name="nextStep" defaultValue={item.nextStep || ""} />
         </label>
@@ -102,15 +109,15 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
             defaultValue={formatDateInput(item.nextStepDueDate)}
           />
         </label>
-        <label className="block md:col-span-2">
+        <label className="block lg:col-span-2">
           <span className="mb-2 block text-sm font-medium text-slate-700">Notes</span>
           <textarea name="notes" defaultValue={item.notes || ""} />
         </label>
-        <div className="md:col-span-2 flex flex-wrap gap-2">
+        <div className="grid gap-2 sm:flex sm:flex-wrap lg:col-span-2">
           <button
             type="submit"
             formAction={updateOutreachItem}
-            className="rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900 sm:w-auto"
           >
             Update Engagement
           </button>
@@ -126,7 +133,7 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
                 event.preventDefault();
               }
             }}
-            className="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-500 hover:border-rose-200 hover:text-rose-700"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-500 hover:border-rose-200 hover:text-rose-700 sm:w-auto"
           >
             Delete
           </button>
@@ -134,4 +141,13 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
       </div>
     </form>
   );
+}
+
+function getTodayDateInput() {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
 }
