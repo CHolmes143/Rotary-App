@@ -29,7 +29,7 @@ export default async function DashboardPage() {
 
       <SectionCard
         title="Help"
-        description="Watch quick how-to videos for common Rotary Rodeo tasks."
+        description="How-To videos for tasks like adding and updating participation information"
       >
         <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
           <Link
