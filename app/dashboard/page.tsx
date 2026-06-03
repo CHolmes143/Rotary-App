@@ -102,9 +102,12 @@ export default async function DashboardPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                     Committed sponsors
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-primary">
+                  <Link
+                    href="/companies?category=Sponsorship&status=participation%20committed"
+                    className="mt-2 inline-flex text-2xl font-semibold text-primary underline underline-offset-4 hover:text-accent"
+                  >
                     {dashboard.sponsorshipCommittedCount}
-                  </p>
+                  </Link>
                 </div>
               </div>
             </div>
