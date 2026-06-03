@@ -28,7 +28,6 @@ export const outreachMethods = [
 
 export const sponsorshipTargetAmounts = [
   "Friend $500",
-  "Rider $1000",
   "Royality $2500",
   "Racer $100"
 ] as const;
