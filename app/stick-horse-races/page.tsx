@@ -1,12 +1,12 @@
 import { SectionCard } from "@/components/ui";
 
 const flyerAudiences = [
-  { name: "General", href: "/stick-horse-general-flyer.pdf" },
-  { name: "Banks", href: "/stick-horse-bank-flyer.pdf" },
-  { name: "Preschool", href: "/stick-horse-preschool-flyer.pdf" },
-  { name: "Tutoring Organizations", href: "/stick-horse-tutor-flyer.pdf" },
-  { name: "Real Estate Agents", href: "/stick-horse-real-estate-flyer.pdf" },
-  { name: "Insurance Agents", href: "/stick-horse-insurance-agent-flyer.pdf" }
+  { name: "General", href: "/stick-horse-general-flyer.png" },
+  { name: "Banks", href: "/stick-horse-bank-flyer.png" },
+  { name: "Preschool", href: "/stick-horse-preschool-flyer.png" },
+  { name: "Tutoring Organizations", href: "/stick-horse-tutor-flyer.png" },
+  { name: "Real Estate Agents", href: "/stick-horse-real-estate-flyer.png" },
+  { name: "Insurance Agents", href: "/stick-horse-insurance-agent-flyer.png" }
 ] as const;
 
 export default function StickHorseRacesPage() {

@@ -134,48 +134,56 @@ export default async function DashboardPage() {
 
       <div>
         <SectionCard title="Marketing Materials">
-          <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
+          <div className="space-y-4">
+            <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
+              <Link
+                href="/sponsorship-resources"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+              >
+                Sponsorships
+              </Link>
+              <Link
+                href="/stick-horse-races"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+              >
+                Stick Horse Showdown
+              </Link>
+              <Link
+                href="/vendor"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+              >
+                Vendors
+              </Link>
+              <Link
+                href="/silent-auction-donations"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+              >
+                Silent Auction Donations
+              </Link>
+              <Link
+                href="/marketing-support"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+              >
+                Marketing Support
+              </Link>
+              <Link
+                href="/volunteers"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+              >
+                Volunteers
+              </Link>
+              <Link
+                href="/event-general"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+              >
+                Event (general)
+              </Link>
+            </div>
             <Link
-              href="/sponsorship-resources"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+              href="/carissas-meeting-updates.pdf"
+              className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
             >
-              Sponsorships
-            </Link>
-            <Link
-              href="/stick-horse-races"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
-            >
-              Stick Horse Showdown
-            </Link>
-            <Link
-              href="/vendor"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
-            >
-              Vendors
-            </Link>
-            <Link
-              href="/silent-auction-donations"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
-            >
-              Silent Auction Donations
-            </Link>
-            <Link
-              href="/marketing-support"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
-            >
-              Marketing Support
-            </Link>
-            <Link
-              href="/volunteers"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
-            >
-              Volunteers
-            </Link>
-            <Link
-              href="/event-general"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
-            >
-              Event (general)
+              Carissa&apos;s meeting updates
             </Link>
           </div>
         </SectionCard>
