@@ -149,6 +149,12 @@ export async function updateOutreachItem(formData: FormData) {
     throw new Error("A valid outreach status is required.");
   }
 
+  const existingItem = await prisma.outreachItem.findUnique({
+    where: { id },
+    select: { status: true }
+  });
+  const statusChanged = existingItem?.status !== status;
+
   await prisma.outreachItem.update({
     where: { id },
     data: {
@@ -156,7 +162,9 @@ export async function updateOutreachItem(formData: FormData) {
       targetAmount,
       status,
       outreachMethod: null,
-      dateLastContacted: parseOptionalDate(formData.get("dateLastContacted")),
+      dateLastContacted: statusChanged
+        ? getTodayDateInCentralTime()
+        : parseOptionalDate(formData.get("dateLastContacted")),
       nextStep: parseOptionalString(formData.get("nextStep")),
       nextStepDueDate: parseOptionalDate(formData.get("nextStepDueDate")),
       notes: parseOptionalString(formData.get("notes"))
@@ -254,4 +262,16 @@ function parseOutreachCategory(value: string): OutreachCategory | null {
   };
 
   return map[normalized] || null;
+}
+
+function getTodayDateInCentralTime() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Chicago",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(new Date());
+  const dateParts = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+
+  return new Date(`${dateParts.year}-${dateParts.month}-${dateParts.day}T00:00:00.000Z`);
 }
