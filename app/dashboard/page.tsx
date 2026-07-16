@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getDashboardData } from "@/lib/data";
-import { SectionCard, StatCard } from "@/components/ui";
+import { SectionCard } from "@/components/ui";
 
 const dashboardOpportunityOrder = [
   "Sponsorship",
@@ -11,36 +11,22 @@ const dashboardOpportunityOrder = [
   "Rotary Member"
 ] as const;
 
+const dashboardCommitmentCategories = [
+  { label: "Sponsorship", category: "Sponsorship" },
+  { label: "Silent Auction donation", category: "Silent Auction donation" },
+  { label: "Vendor", category: "Vendor" },
+  { label: "Marketing support", category: "Marketing support" },
+  { label: "Stick Horse Showdown", category: "Stick Horse Sponsor" },
+  { label: "Rotary Member", category: "Rotary Member" }
+] as const;
+
+export const dynamic = "force-dynamic";
+
 export default async function DashboardPage() {
   const dashboard = await getDashboardData();
 
   return (
     <div className="space-y-6">
-      <section className="grid gap-4 md:grid-cols-2">
-        <StatCard label="Companies" value={dashboard.companiesCount} />
-        <Link href="/companies?status=participation%20committed" className="block">
-          <StatCard
-            label="participation commitments"
-            value={dashboard.statusCounts["participation committed"] || 0}
-            tone="bg-primary text-white"
-          />
-        </Link>
-      </section>
-
-      <SectionCard
-        title="Help"
-        description="How-To videos for tasks like adding and updating participation information"
-      >
-        <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
-          <Link
-            href="/help"
-            className="inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-accent/90"
-          >
-            Open Help Videos
-          </Link>
-        </div>
-      </SectionCard>
-
       <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
         <SectionCard title="Sponsorship Thermometer">
           <div className="grid gap-5 lg:grid-cols-[180px_1fr] lg:items-end">
@@ -114,6 +100,54 @@ export default async function DashboardPage() {
           </div>
         </SectionCard>
 
+        <SectionCard title="Participation Commitments">
+          <div className="space-y-4">
+            <Link
+              href="/companies?status=participation%20committed"
+              className="block rounded-2xl border border-slate-200 bg-primary px-5 py-4 text-white"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/80">
+                Total commitments
+              </p>
+              <p className="mt-2 text-4xl font-semibold">
+                {dashboard.statusCounts["participation committed"] || 0}
+              </p>
+            </Link>
+            <div className="space-y-3">
+              {dashboardCommitmentCategories.map((item) => (
+                <Link
+                  key={item.label}
+                  href={`/companies?category=${encodeURIComponent(
+                    item.category
+                  )}&status=participation%20committed`}
+                  className="flex items-center justify-between rounded-2xl border border-slate-200 bg-accentSoft px-4 py-3"
+                >
+                  <span className="font-medium text-primary">{item.label}</span>
+                  <span className="text-lg font-semibold text-primary">
+                    {dashboard.committedCategoryCounts[item.category] || 0}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </SectionCard>
+      </div>
+
+      <SectionCard
+        title="Help"
+        description="How-To videos for tasks like adding and updating participation information"
+      >
+        <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
+          <Link
+            href="/help"
+            className="inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-accent/90"
+          >
+            Open Help Videos
+          </Link>
+        </div>
+      </SectionCard>
+
+      <div className="grid gap-6">
         <SectionCard title="Opportunity Totals">
           <div className="space-y-3">
             {dashboardOpportunityOrder.map((category) => (

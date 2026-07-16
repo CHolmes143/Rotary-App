@@ -38,6 +38,7 @@ const categoryMap = {
   SIGN_IN_WINDOW: OutreachCategory.SIGN_IN_WINDOW,
   sign_in_window: OutreachCategory.SIGN_IN_WINDOW,
   "Stick Horse Sponsor": OutreachCategory.STICK_HORSE_SPONSOR,
+  "Stick Horse Showdown": OutreachCategory.STICK_HORSE_SPONSOR,
   STICK_HORSE_SPONSOR: OutreachCategory.STICK_HORSE_SPONSOR,
   stick_horse_sponsor: OutreachCategory.STICK_HORSE_SPONSOR,
   "Rotary Member": OutreachCategory.ROTARY_MEMBER,
@@ -156,6 +157,14 @@ export async function getDashboardData() {
     return acc;
   }, {});
 
+  const committedCategoryCounts = outreachItems
+    .filter((item) => item.status === OutreachStatus.CONFIRMED_YES)
+    .reduce<Record<string, number>>((acc, item) => {
+      const label = readableCategory(item.category);
+      acc[label] = (acc[label] || 0) + 1;
+      return acc;
+    }, {});
+
   const committedSponsorships = outreachItems.filter(
     (item) =>
       item.category === OutreachCategory.SPONSORSHIP &&
@@ -173,6 +182,7 @@ export async function getDashboardData() {
     outreachCount: outreachItems.length,
     statusCounts,
     categoryCounts,
+    committedCategoryCounts,
     sponsorshipCommittedCount: committedSponsorships.length,
     sponsorshipCommittedTotal,
     sponsorshipGoal,
