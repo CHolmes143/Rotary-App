@@ -181,7 +181,9 @@ export default async function DashboardPage() {
         </SectionCard>
         <div className="mt-4">
           <Link
-            href="/carissas-meeting-updates.pdf"
+            href="https://canva.link/airtzbcitvbfd69"
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex text-sm font-semibold text-primary underline underline-offset-4 hover:text-accent"
           >
             Carissa&apos;s meeting updates
