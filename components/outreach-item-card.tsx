@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { OutreachItem } from "@prisma/client";
 import { deleteOutreachItem, updateOutreachItem } from "@/lib/actions";
 import { outreachCategories, outreachStatuses, sponsorshipTargetAmounts } from "@/lib/constants";
@@ -18,6 +18,7 @@ type OutreachItemCardProps = {
 };
 
 export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
+  const dateLastContactedRef = useRef<HTMLInputElement>(null);
   const initialCategory = readableCategory(item.category);
   const initialStatus = readableStatus(item.status);
   const [category, setCategory] = useState(initialCategory);
@@ -35,6 +36,14 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
 
   const showSponsorshipLevel =
     category === "Sponsorship" && status === "participation committed";
+  const stampDateLastContacted = () => {
+    const today = getTodayDateInput();
+    setDateLastContacted(today);
+
+    if (dateLastContactedRef.current) {
+      dateLastContactedRef.current.value = today;
+    }
+  };
 
   return (
     <form className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
@@ -99,6 +108,7 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-slate-700">Date last contacted</span>
           <input
+            ref={dateLastContactedRef}
             name="dateLastContacted"
             type="date"
             value={dateLastContacted}
@@ -125,7 +135,7 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
           <button
             type="submit"
             formAction={updateOutreachItem}
-            onClick={() => setDateLastContacted(getTodayDateInput())}
+            onClick={stampDateLastContacted}
             className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent hover:text-slate-900 sm:w-auto"
           >
             Update Engagement
