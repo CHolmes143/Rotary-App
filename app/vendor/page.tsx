@@ -8,6 +8,14 @@ export default function VendorPage() {
         description="DOWNLOAD or COPY/PASTE URL to send/share"
       >
         <div className="space-y-4">
+          <a
+            href="https://tally.so/r/q4MMeG"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.08em] text-primary shadow-sm transition hover:bg-accent/90 sm:w-auto"
+          >
+            Link to Vendor Registration
+          </a>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
