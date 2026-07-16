@@ -211,6 +211,12 @@ export default async function DashboardPage() {
             >
               Event (general)
             </Link>
+            <Link
+              href="/rotary-booster"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white hover:bg-primary/90 sm:w-auto"
+            >
+              Rotary Booster
+            </Link>
           </div>
         </SectionCard>
         <div className="mt-4">
