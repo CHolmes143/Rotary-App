@@ -76,17 +76,6 @@ export default async function CompanyDetailPage({
             <span className="mb-2 block text-sm font-medium text-slate-700">Phone</span>
             <input name="phone" defaultValue={company.phone || ""} />
           </label>
-          <label className="block">
-            <span className="mb-2 block text-sm font-medium text-slate-700">Social media handles</span>
-            <input
-              name="socialMediaHandles"
-              defaultValue={company.socialMediaHandles || ""}
-            />
-          </label>
-          <label className="block lg:col-span-2">
-            <span className="mb-2 block text-sm font-medium text-slate-700">Address</span>
-            <input name="address" defaultValue={company.address || ""} />
-          </label>
           <label className="block lg:col-span-2">
             <span className="mb-2 block text-sm font-medium text-slate-700">Business description</span>
             <input name="description" defaultValue={company.description || ""} />
