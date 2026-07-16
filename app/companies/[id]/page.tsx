@@ -146,15 +146,7 @@ export default async function CompanyDetailPage({
             ))
           )}
 
-          <div className="rounded-2xl border border-dashed border-slate-300 bg-accentSoft p-4">
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-2">
-              <h3 className="text-base font-semibold text-primary">Add Engagement</h3>
-              <p className="text-sm text-primary">
-                Use this when the same company is being contacted for another type of support.
-              </p>
-            </div>
-            <AddEngagementForm companyId={company.id} />
-          </div>
+          <AddEngagementForm companyId={company.id} />
         </div>
       </SectionCard>
     </div>
