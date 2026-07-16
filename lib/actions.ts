@@ -147,12 +147,6 @@ export async function updateOutreachItem(formData: FormData) {
     throw new Error("A valid outreach status is required.");
   }
 
-  const existingItem = await prisma.outreachItem.findUnique({
-    where: { id },
-    select: { status: true }
-  });
-  const statusChanged = existingItem?.status !== status;
-
   await prisma.outreachItem.update({
     where: { id },
     data: {
@@ -160,9 +154,7 @@ export async function updateOutreachItem(formData: FormData) {
       targetAmount,
       status,
       outreachMethod: null,
-      dateLastContacted: statusChanged
-        ? getTodayDateInCentralTime()
-        : parseOptionalDate(formData.get("dateLastContacted")),
+      dateLastContacted: getTodayDateInCentralTime(),
       nextStep: parseOptionalString(formData.get("nextStep")),
       nextStepDueDate: parseOptionalDate(formData.get("nextStepDueDate")),
       notes: parseOptionalString(formData.get("notes"))
