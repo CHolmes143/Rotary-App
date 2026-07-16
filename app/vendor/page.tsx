@@ -17,17 +17,15 @@ export default function VendorPage() {
             Link to Vendor Registration
           </a>
           <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <a
+              href="/vendor-flyer-print.pdf"
+              download
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-primary/40 hover:bg-primarySoft/40"
+            >
               <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                Download
+                FLYER: DOWNLOAD TO PRINT
               </h3>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                Share
-              </h3>
-            </div>
+            </a>
           </div>
         </div>
       </SectionCard>
