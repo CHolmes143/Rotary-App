@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { OutreachItem } from "@prisma/client";
 import { deleteOutreachItem, updateOutreachItem } from "@/lib/actions";
 import { outreachCategories, outreachStatuses, sponsorshipTargetAmounts } from "@/lib/constants";
@@ -25,6 +25,14 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
   const [dateLastContacted, setDateLastContacted] = useState(
     formatDateInput(item.dateLastContacted)
   );
+  const formattedDateLastContacted = formatDateInput(item.dateLastContacted);
+
+  useEffect(() => {
+    setCategory(initialCategory);
+    setStatus(initialStatus);
+    setDateLastContacted(formattedDateLastContacted);
+  }, [formattedDateLastContacted, initialCategory, initialStatus]);
+
   const showSponsorshipLevel =
     category === "Sponsorship" && status === "participation committed";
 
@@ -46,7 +54,7 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
           <span className="mb-2 block text-sm font-medium text-slate-700">Category</span>
           <select
             name="category"
-            defaultValue={initialCategory}
+            value={category}
             onChange={(event) => setCategory(event.target.value)}
           >
             {outreachCategories.map((category) => (
@@ -60,7 +68,7 @@ export function OutreachItemCard({ companyId, item }: OutreachItemCardProps) {
           <span className="mb-2 block text-sm font-medium text-slate-700">Status</span>
           <select
             name="status"
-            defaultValue={initialStatus}
+            value={status}
             onChange={(event) => {
               setStatus(event.target.value);
               setDateLastContacted(getTodayDateInput());
