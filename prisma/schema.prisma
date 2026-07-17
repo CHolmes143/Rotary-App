@@ -89,16 +89,3 @@ model OutreachItem {
   @@index([companyId])
   @@index([assignedMemberId])
 }
-
-model RotaryLearningRecord {
-  id          String   @id @default(cuid())
-  topic       String
-  guidance    String
-  context     String?
-  source      String?
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([isActive, updatedAt(sort: Desc)])
-}
