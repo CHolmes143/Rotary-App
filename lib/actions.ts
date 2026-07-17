@@ -227,6 +227,38 @@ export async function deleteMember(formData: FormData) {
   revalidatePath("/", "layout");
 }
 
+export async function createRotaryLearningRecord(formData: FormData) {
+  const topic = parseOptionalString(formData.get("topic"));
+  const guidance = parseOptionalString(formData.get("guidance"));
+
+  if (!topic || !guidance) {
+    throw new Error("A topic and guidance are required.");
+  }
+
+  await prisma.rotaryLearningRecord.create({
+    data: {
+      topic,
+      guidance,
+      context: parseOptionalString(formData.get("context")),
+      source: parseOptionalString(formData.get("source"))
+    }
+  });
+
+  revalidatePath("/marketing-support");
+}
+
+export async function deactivateRotaryLearningRecord(formData: FormData) {
+  const id = String(formData.get("id") || "");
+  if (!id) return;
+
+  await prisma.rotaryLearningRecord.update({
+    where: { id },
+    data: { isActive: false }
+  });
+
+  revalidatePath("/marketing-support");
+}
+
 function parseCompanyCategory(value: FormDataEntryValue | null) {
   const category = parseOptionalString(value);
   if (!category) return undefined;
